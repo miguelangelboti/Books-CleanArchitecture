@@ -1,6 +1,5 @@
 package com.miguelangelboti.books.domain.interactor.books;
 
-
 import com.miguelangelboti.books.domain.entities.Book;
 import com.miguelangelboti.books.domain.executor.PostExecutionThread;
 import com.miguelangelboti.books.domain.executor.ThreadExecutor;

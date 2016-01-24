@@ -13,14 +13,16 @@ public class Book {
     private final String description;
     private final Integer pageCount;
     private final String imageUrl;
+    private final String webReaderLink;
 
-    public Book(String title, List<String> authors, String publishedDate, String description, Integer pageCount, String imageUrl) {
+    public Book(String title, List<String> authors, String publishedDate, String description, Integer pageCount, String imageUrl, String webReaderLink) {
         this.title = title;
         this.authors = authors;
         this.publishedDate = publishedDate;
         this.description = description;
         this.pageCount = (pageCount != null) ? pageCount : 0;
         this.imageUrl = imageUrl;
+        this.webReaderLink = webReaderLink;
     }
 
     public String getTitle() {
@@ -45,5 +47,9 @@ public class Book {
 
     public String getImageUrl() {
         return imageUrl;
+    }
+
+    public String getWebReaderLink() {
+        return webReaderLink;
     }
 }

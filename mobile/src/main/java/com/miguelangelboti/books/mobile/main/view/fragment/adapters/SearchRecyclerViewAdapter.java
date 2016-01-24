@@ -39,13 +39,29 @@ public class SearchRecyclerViewAdapter extends RecyclerView.Adapter<SearchRecycl
     public void onBindViewHolder(final ViewHolder holder, int position) {
 
         final BookViewModel book = books.get(position);
+        final String webReaderLink = book.getWebReaderLink();
+        List<String> authors = book.getAuthors();
+        String firstAuthor = ((authors != null) && (authors.size() > 0)) ? authors.get(0) : null;
 
         Picasso.with(holder.imageView.getContext()).load(book.getImageUrl()).into(holder.imageView);
-        holder.textView.setText(book.getTitle());
+        holder.textView01.setText(book.getTitle());
+        holder.textView02.setText(firstAuthor);
+        if (webReaderLink != null) {
+            holder.textView03.setVisibility(View.VISIBLE);
+            holder.textView03.setOnClickListener(new View.OnClickListener() {
+                @Override
+                public void onClick(View view) {
+                    navigator.openWeb(view.getContext(), webReaderLink);
+                }
+            });
+        } else {
+            holder.textView03.setVisibility(View.GONE);
+        }
+
         holder.itemView.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                navigator.navigateToBooksDetails(holder.itemView.getContext(), book);
+                navigator.navigateToBooksDetails(view.getContext(), book, holder.imageView, holder.textView01, holder.textView02);
             }
         });
     }
@@ -63,13 +79,16 @@ public class SearchRecyclerViewAdapter extends RecyclerView.Adapter<SearchRecycl
     public class ViewHolder extends RecyclerView.ViewHolder {
 
         public ImageView imageView;
-
-        public TextView textView;
+        public TextView textView01;
+        public TextView textView02;
+        public TextView textView03;
 
         public ViewHolder(View view) {
             super(view);
             imageView = (ImageView) view.findViewById(R.id.imageView);
-            textView = (TextView) view.findViewById(R.id.textView);
+            textView01 = (TextView) view.findViewById(R.id.textView01);
+            textView02 = (TextView) view.findViewById(R.id.textView02);
+            textView03 = (TextView) view.findViewById(R.id.textView03);
         }
     }
 }

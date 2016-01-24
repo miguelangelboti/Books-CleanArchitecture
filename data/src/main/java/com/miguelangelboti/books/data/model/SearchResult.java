@@ -1,35 +1,34 @@
 package com.miguelangelboti.books.data.model;
 
+import com.google.gson.annotations.Expose;
+import com.google.gson.annotations.SerializedName;
+
 import java.util.ArrayList;
 import java.util.List;
 
 public class SearchResult {
 
+    @Expose
+    @SerializedName("kind")
     private String kind;
+
+    @Expose
+    @SerializedName("totalItems")
     private int totalItems;
-    private List<Item> items = new ArrayList<Item>();
+
+    @Expose
+    @SerializedName("items")
+    private List<Item> items = new ArrayList<>();
 
     public String getKind() {
         return kind;
-    }
-
-    public void setKind(String kind) {
-        this.kind = kind;
     }
 
     public int getTotalItems() {
         return totalItems;
     }
 
-    public void setTotalItems(Integer totalItems) {
-        this.totalItems = totalItems;
-    }
-
     public List<Item> getItems() {
         return items;
-    }
-
-    public void setItems(List<Item> items) {
-        this.items = items;
     }
 }

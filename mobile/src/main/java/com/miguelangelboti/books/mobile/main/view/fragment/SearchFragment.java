@@ -1,12 +1,15 @@
 package com.miguelangelboti.books.mobile.main.view.fragment;
 
+import android.animation.LayoutTransition;
 import android.os.Bundle;
 import android.support.annotation.NonNull;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
+import android.support.v7.widget.SearchView;
 import android.view.Menu;
 import android.view.MenuInflater;
 import android.view.View;
+import android.widget.LinearLayout;
 import android.widget.ProgressBar;
 
 import com.miguelangelboti.books.R;
@@ -23,7 +26,6 @@ import com.miguelangelboti.books.mobile.main.model.BookViewModel;
 import com.miguelangelboti.books.mobile.main.model.mappers.BooksMapper;
 import com.miguelangelboti.books.mobile.main.presenter.SearchPresenter;
 import com.miguelangelboti.books.mobile.main.presenter.SearchPresenterImpl;
-import com.miguelangelboti.books.mobile.main.view.SearchView;
 import com.miguelangelboti.books.mobile.main.view.fragment.adapters.LinearSpacingItemDecoration;
 import com.miguelangelboti.books.mobile.main.view.fragment.adapters.SearchRecyclerViewAdapter;
 
@@ -31,7 +33,7 @@ import java.util.List;
 
 import butterknife.Bind;
 
-public class SearchFragment extends BaseFragment implements SearchView {
+public class SearchFragment extends BaseFragment implements com.miguelangelboti.books.mobile.main.view.SearchView {
 
     @Bind(R.id.recyclerView)
     RecyclerView recyclerView;
@@ -95,11 +97,11 @@ public class SearchFragment extends BaseFragment implements SearchView {
     @Override
     public void onCreateOptionsMenu(Menu menu, MenuInflater inflater) {
 
-        // Inflate the options menu from XML
+        // Inflate the options menu from XML.
         inflater.inflate(R.menu.menu_search, menu);
 
-        // Get the SearchView and set the searchable configuration
-        final android.support.v7.widget.SearchView searchView = (android.support.v7.widget.SearchView) menu.findItem(R.id.action_search).getActionView();
+        // Get the SearchView and set the searchable configuration.
+        final SearchView searchView = (SearchView) menu.findItem(R.id.action_search).getActionView();
         searchView.setOnQueryTextListener(new android.support.v7.widget.SearchView.OnQueryTextListener() {
 
             @Override
@@ -114,6 +116,12 @@ public class SearchFragment extends BaseFragment implements SearchView {
                 return false;
             }
         });
+
+        // Add the expand/collapse animation to the SearchView.
+        LinearLayout searchBar = (LinearLayout) searchView.findViewById(R.id.search_bar);
+        if (searchBar != null) {
+            searchBar.setLayoutTransition(new LayoutTransition());
+        }
 
         super.onCreateOptionsMenu(menu, inflater);
     }

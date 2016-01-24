@@ -2,39 +2,49 @@ package com.miguelangelboti.books.mobile.main.view.activity;
 
 import android.content.Context;
 import android.content.Intent;
+import android.os.Build;
 import android.os.Bundle;
 import android.os.Parcelable;
-import android.support.design.widget.AppBarLayout;
-import android.support.design.widget.FloatingActionButton;
 import android.support.design.widget.Snackbar;
+import android.support.v7.app.ActionBar;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.Toolbar;
+import android.transition.Explode;
+import android.transition.Slide;
+import android.view.MenuItem;
 import android.view.View;
+import android.view.Window;
+import android.widget.ImageView;
 import android.widget.TextView;
 
 import com.miguelangelboti.books.R;
 import com.miguelangelboti.books.mobile.main.model.BookViewModel;
+import com.squareup.picasso.Picasso;
+
+import java.util.List;
 
 import butterknife.Bind;
 import butterknife.ButterKnife;
+import butterknife.OnClick;
 
 public class BookDetailActivity extends AppCompatActivity {
 
     private static final String KEY_BOOK = "KEY_BOOK";
 
-    @Bind(R.id.appBar)
-    AppBarLayout appBar;
-
     @Bind(R.id.toolbar)
     Toolbar toolbar;
 
-    @Bind(R.id.fab)
-    FloatingActionButton fab;
+    @Bind(R.id.imageView)
+    ImageView imageView;
 
-    @Bind(R.id.textView)
-    TextView textView;
+    @Bind(R.id.textView01)
+    TextView textView01;
 
-    private BookViewModel book;
+    @Bind(R.id.textView02)
+    TextView textView02;
+
+    @Bind(R.id.textView03)
+    TextView textView03;
 
     public static Intent getCallingIntent(Context context, BookViewModel book) {
         Intent intent = new Intent(context, BookDetailActivity.class);
@@ -50,19 +60,31 @@ public class BookDetailActivity extends AppCompatActivity {
         ButterKnife.bind(this);
 
         setSupportActionBar(toolbar);
-        fab.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                Snackbar.make(view, "Replace with your own action", Snackbar.LENGTH_LONG).setAction("Action", null).show();
-            }
-        });
+        ActionBar actionBar = getSupportActionBar();
+        if (actionBar != null) {
+            actionBar.setDisplayHomeAsUpEnabled(true);
+        }
+
+        setupWindowAnimations();
+        bindData();
+    }
+
+    private void bindData() {
 
         Parcelable parcelable = getIntent().getParcelableExtra(KEY_BOOK);
         if (parcelable instanceof BookViewModel) {
 
-            book = (BookViewModel) parcelable;
-            setTitle(book.getTitle());
-            textView.setText(book.getDescription());
+            BookViewModel book = (BookViewModel) parcelable;
+            String title = book.getTitle();
+            List<String> authors = book.getAuthors();
+            String firstAuthor = ((authors != null) && (authors.size() > 0)) ? authors.get(0) : null;
+            String description = book.getDescription();
+
+            setTitle(title);
+            textView01.setText(title);
+            textView02.setText(firstAuthor);
+            textView03.setText(description);
+            Picasso.with(this).load(book.getImageUrl()).into(imageView);
 
 //            Picasso.with(this).load(book.getImageUrl()).into(new Target() {
 //                @Override
@@ -73,15 +95,32 @@ public class BookDetailActivity extends AppCompatActivity {
 //                        appBar.setBackgroundColor(swatch.getRgb());
 //                    }
 //                }
-//
-//                @Override
-//                public void onBitmapFailed(Drawable errorDrawable) {
-//                }
-//
-//                @Override
-//                public void onPrepareLoad(Drawable placeHolderDrawable) {
-//                }
 //            });
         }
+    }
+
+    private void setupWindowAnimations() {
+
+        if (android.os.Build.VERSION.SDK_INT >= Build.VERSION_CODES.LOLLIPOP) {
+            Window window = getWindow();
+            window.setEnterTransition(new Explode());
+            window.setExitTransition(new Slide());
+        }
+    }
+
+    @Override
+    public boolean onOptionsItemSelected(MenuItem item) {
+        switch (item.getItemId()) {
+            case android.R.id.home:
+                finish();
+                return true;
+            default:
+                return super.onOptionsItemSelected(item);
+        }
+    }
+
+    @OnClick(R.id.fab)
+    public void onFabClick(View view) {
+        Snackbar.make(view, "Replace with your own action", Snackbar.LENGTH_LONG).setAction("Action", null).show();
     }
 }

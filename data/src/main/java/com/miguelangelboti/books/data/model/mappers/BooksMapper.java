@@ -67,7 +67,8 @@ public class BooksMapper {
                 String description = volumeInfo.getDescription();
                 Integer pageCount = volumeInfo.getPageCount();
                 String thumbnail = (volumeInfo.getImageLinks() != null) ? volumeInfo.getImageLinks().getThumbnail() : null;
-                result = new Book(title, authors, publishedDate, description, pageCount, thumbnail);
+                String webReaderLink = (item.getAccessInfo() != null) ? item.getAccessInfo().getWebReaderLink() : null;
+                result = new Book(title, authors, publishedDate, description, pageCount, thumbnail, webReaderLink);
             }
         }
 

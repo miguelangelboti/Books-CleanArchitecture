@@ -35,7 +35,8 @@ public class BooksMapper {
                 String description = book.getDescription();
                 Integer pageCount = book.getPageCount();
                 String imageUrl = book.getImageUrl();
-                BookViewModel bookViewModel = new BookViewModel(title, authors, publishedDate, description, pageCount, imageUrl);
+                String webReaderLink = book.getWebReaderLink();
+                BookViewModel bookViewModel = new BookViewModel(title, authors, publishedDate, description, pageCount, imageUrl, webReaderLink);
                 result.add(bookViewModel);
             }
         }

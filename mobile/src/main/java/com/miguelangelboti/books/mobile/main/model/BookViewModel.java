@@ -13,14 +13,16 @@ public class BookViewModel implements Parcelable {
     private final String description;
     private final int pageCount;
     private final String imageUrl;
+    private final String webReaderLink;
 
-    public BookViewModel(String title, List<String> authors, String publishedDate, String description, Integer pageCount, String imageUrl) {
+    public BookViewModel(String title, List<String> authors, String publishedDate, String description, Integer pageCount, String imageUrl, String webReaderLink) {
         this.title = title;
         this.authors = authors;
         this.publishedDate = publishedDate;
         this.description = description;
         this.pageCount = pageCount;
         this.imageUrl = imageUrl;
+        this.webReaderLink = webReaderLink;
     }
 
     protected BookViewModel(Parcel in) {
@@ -30,6 +32,7 @@ public class BookViewModel implements Parcelable {
         description = in.readString();
         pageCount = in.readInt();
         imageUrl = in.readString();
+        webReaderLink = in.readString();
     }
 
     public String getTitle() {
@@ -54,6 +57,10 @@ public class BookViewModel implements Parcelable {
 
     public String getImageUrl() {
         return imageUrl;
+    }
+
+    public String getWebReaderLink() {
+        return webReaderLink;
     }
 
     public static final Creator<BookViewModel> CREATOR = new Creator<BookViewModel>() {
@@ -81,5 +88,6 @@ public class BookViewModel implements Parcelable {
         dest.writeString(description);
         dest.writeInt(pageCount);
         dest.writeString(imageUrl);
+        dest.writeString(webReaderLink);
     }
 }

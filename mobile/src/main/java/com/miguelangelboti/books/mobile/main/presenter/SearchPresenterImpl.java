@@ -1,6 +1,5 @@
 package com.miguelangelboti.books.mobile.main.presenter;
 
-
 import android.support.annotation.NonNull;
 
 import com.miguelangelboti.books.domain.entities.Book;
