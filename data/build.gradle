@@ -11,10 +11,10 @@ android {
 }
 
 dependencies {
-    testCompile 'junit:junit:4.12'
-    compile project(':domain')
+    testCompile "junit:junit:4.12"
+    compile project(":domain")
     compile "com.android.support:appcompat-v7:$supportVersion"
-    compile "com.squareup.retrofit:retrofit:2.0.0-beta2"
-    compile 'com.squareup.retrofit:converter-gson:2.0.0-beta2'
     compile "com.google.code.findbugs:jsr305:$jsr305Version"
+    compile "com.squareup.retrofit:retrofit:2.0.0-beta2"
+    compile "com.squareup.retrofit:converter-gson:2.0.0-beta2"
 }

@@ -36,12 +36,10 @@ public class Navigator {
                 if (activity != null) {
 
                     Resources resources = context.getResources();
-                    Pair<View, String>[] pairs = TransitionHelper.createSafeTransitionParticipants(activity, true,
+                    ActivityOptions options = ActivityOptions.makeSceneTransitionAnimation(activity,
                             Pair.create(imageView, resources.getString(R.string.transition_name_book_image)),
                             Pair.create(textView01, resources.getString(R.string.transition_name_book_title)),
                             Pair.create(textView02, resources.getString(R.string.transition_name_book_authors)));
-
-                    ActivityOptions options = ActivityOptions.makeSceneTransitionAnimation(activity, pairs);
                     bundle = options.toBundle();
                 }
             }

@@ -1,9 +1,12 @@
 <resources>
 
     <string name="app_name">Books</string>
-    <string name="action_search">Search</string>
-    <string name="action_settings">Settings</string>
-    <string name="free_sample">Muestra gratis</string>
+    <string name="search">Search</string>
+    <string name="settings">Settings</string>
+    <string name="free_sample">Free sample</string>
+    <string name="favorites">Favorites</string>
+
+    <!-- Transition names -->
     <string name="transition_name_book_image">transition_name_book_image</string>
     <string name="transition_name_book_title">transition_name_book_title</string>
     <string name="transition_name_book_authors">transition_name_book_authors</string>

@@ -1,16 +1,18 @@
 package com.miguelangelboti.books.mobile.main.view.activity;
 
+import java.util.List;
+
 import android.content.Context;
 import android.content.Intent;
 import android.os.Build;
 import android.os.Bundle;
 import android.os.Parcelable;
+import android.support.design.widget.FloatingActionButton;
 import android.support.design.widget.Snackbar;
 import android.support.v7.app.ActionBar;
-import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.Toolbar;
-import android.transition.Explode;
-import android.transition.Slide;
+import android.transition.Transition;
+import android.transition.TransitionInflater;
 import android.view.MenuItem;
 import android.view.View;
 import android.view.Window;
@@ -18,16 +20,15 @@ import android.widget.ImageView;
 import android.widget.TextView;
 
 import com.miguelangelboti.books.R;
+import com.miguelangelboti.books.mobile.base.view.activity.BaseActivity;
 import com.miguelangelboti.books.mobile.main.model.BookViewModel;
 import com.squareup.picasso.Picasso;
-
-import java.util.List;
 
 import butterknife.Bind;
 import butterknife.ButterKnife;
 import butterknife.OnClick;
 
-public class BookDetailActivity extends AppCompatActivity {
+public class BookDetailActivity extends BaseActivity {
 
     private static final String KEY_BOOK = "KEY_BOOK";
 
@@ -45,6 +46,9 @@ public class BookDetailActivity extends AppCompatActivity {
 
     @Bind(R.id.textView03)
     TextView textView03;
+
+    @Bind(R.id.fab)
+    FloatingActionButton fab;
 
     public static Intent getCallingIntent(Context context, BookViewModel book) {
         Intent intent = new Intent(context, BookDetailActivity.class);
@@ -103,19 +107,22 @@ public class BookDetailActivity extends AppCompatActivity {
 
         if (android.os.Build.VERSION.SDK_INT >= Build.VERSION_CODES.LOLLIPOP) {
             Window window = getWindow();
-            window.setEnterTransition(new Explode());
-            window.setExitTransition(new Slide());
+            window.setAllowEnterTransitionOverlap(true);
+            Transition enterTransition = TransitionInflater.from(this).inflateTransition(R.transition.detail_enter_trasition);
+            Transition exitTransition = TransitionInflater.from(this).inflateTransition(R.transition.detail_exit_trasition);
+            window.setEnterTransition(enterTransition);
+            window.setReturnTransition(exitTransition);
         }
     }
 
     @Override
     public boolean onOptionsItemSelected(MenuItem item) {
         switch (item.getItemId()) {
-            case android.R.id.home:
-                finish();
-                return true;
-            default:
-                return super.onOptionsItemSelected(item);
+        case android.R.id.home:
+            finishWithAnimation();
+            return true;
+        default:
+            return super.onOptionsItemSelected(item);
         }
     }
 
