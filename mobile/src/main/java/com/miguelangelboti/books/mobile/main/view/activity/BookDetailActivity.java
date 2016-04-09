@@ -1,7 +1,5 @@
 package com.miguelangelboti.books.mobile.main.view.activity;
 
-import java.util.List;
-
 import android.content.Context;
 import android.content.Intent;
 import android.os.Build;
@@ -21,16 +19,27 @@ import android.widget.TextView;
 
 import com.miguelangelboti.books.R;
 import com.miguelangelboti.books.mobile.base.view.activity.BaseActivity;
+import com.miguelangelboti.books.mobile.di.HasComponent;
+import com.miguelangelboti.books.mobile.di.components.DaggerSearchComponent;
+import com.miguelangelboti.books.mobile.di.components.SearchComponent;
+import com.miguelangelboti.books.mobile.di.modules.SearchModule;
 import com.miguelangelboti.books.mobile.main.model.BookViewModel;
+import com.miguelangelboti.books.mobile.main.presenter.SearchPresenter;
 import com.squareup.picasso.Picasso;
+
+import java.util.List;
+
+import javax.inject.Inject;
 
 import butterknife.Bind;
 import butterknife.ButterKnife;
 import butterknife.OnClick;
 
-public class BookDetailActivity extends BaseActivity {
+public class BookDetailActivity extends BaseActivity implements HasComponent<SearchComponent> {
 
     private static final String KEY_BOOK = "KEY_BOOK";
+
+    private SearchComponent searchComponent;
 
     @Bind(R.id.toolbar)
     Toolbar toolbar;
@@ -50,6 +59,9 @@ public class BookDetailActivity extends BaseActivity {
     @Bind(R.id.fab)
     FloatingActionButton fab;
 
+    @Inject
+    SearchPresenter searchPresenter;
+
     public static Intent getCallingIntent(Context context, BookViewModel book) {
         Intent intent = new Intent(context, BookDetailActivity.class);
         intent.putExtra(KEY_BOOK, book);
@@ -59,6 +71,7 @@ public class BookDetailActivity extends BaseActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
 
+        initializeInjector();
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_book_detail);
         ButterKnife.bind(this);
@@ -71,6 +84,21 @@ public class BookDetailActivity extends BaseActivity {
 
         setupWindowAnimations();
         bindData();
+    }
+
+    private void initializeInjector() {
+
+        searchComponent = DaggerSearchComponent.builder()
+                .applicationComponent(getApplicationComponent())
+                .activityModule(getActivityModule())
+                .searchModule(new SearchModule())
+                .build();
+        searchComponent.inject(this);
+    }
+
+    @Override
+    public SearchComponent getComponent() {
+        return searchComponent;
     }
 
     private void bindData() {
@@ -89,17 +117,6 @@ public class BookDetailActivity extends BaseActivity {
             textView02.setText(firstAuthor);
             textView03.setText(description);
             Picasso.with(this).load(book.getImageUrl()).into(imageView);
-
-//            Picasso.with(this).load(book.getImageUrl()).into(new Target() {
-//                @Override
-//                public void onBitmapLoaded(Bitmap bitmap, Picasso.LoadedFrom from) {
-//                    Palette palette = Palette.from(bitmap).generate();
-//                    Palette.Swatch swatch = palette.getLightVibrantSwatch();
-//                    if (swatch != null) {
-//                        appBar.setBackgroundColor(swatch.getRgb());
-//                    }
-//                }
-//            });
         }
     }
 

@@ -1,14 +1,15 @@
 package com.miguelangelboti.books.mobile.main.presenter;
 
-import android.support.annotation.NonNull;
-
 import com.miguelangelboti.books.domain.entities.Book;
 import com.miguelangelboti.books.domain.interactor.books.SearchInteractor;
-import com.miguelangelboti.books.mobile.main.view.SearchView;
 import com.miguelangelboti.books.mobile.main.model.BookViewModel;
 import com.miguelangelboti.books.mobile.main.model.mappers.BooksMapper;
+import com.miguelangelboti.books.mobile.main.view.SearchView;
 
 import java.util.List;
+
+import javax.annotation.Nonnull;
+import javax.inject.Inject;
 
 public class SearchPresenterImpl implements SearchPresenter, SearchInteractor.Callback {
 
@@ -20,10 +21,15 @@ public class SearchPresenterImpl implements SearchPresenter, SearchInteractor.Ca
 
     private List<BookViewModel> booksMapped;
 
-    public SearchPresenterImpl(SearchView searchView, SearchInteractor searchInteractor, BooksMapper booksMapper) {
-        this.searchView = searchView;
+    @Inject
+    public SearchPresenterImpl(SearchInteractor searchInteractor, BooksMapper booksMapper) {
         this.searchInteractor = searchInteractor;
         this.booksMapper = booksMapper;
+    }
+
+    @Override
+    public void setView(@Nonnull SearchView view) {
+        this.searchView = view;
     }
 
 // region Presenter
@@ -56,7 +62,7 @@ public class SearchPresenterImpl implements SearchPresenter, SearchInteractor.Ca
 // region Interactor callbacks
 
     @Override
-    public void onSuccess(@NonNull List<Book> books) {
+    public void onSuccess(@Nonnull List<Book> books) {
         booksMapped = booksMapper.transform(books);
         searchView.hideProgress();
         searchView.loadBooks(booksMapped);

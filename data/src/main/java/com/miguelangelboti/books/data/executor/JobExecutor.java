@@ -7,10 +7,13 @@ import java.util.concurrent.LinkedBlockingQueue;
 import java.util.concurrent.ThreadPoolExecutor;
 import java.util.concurrent.TimeUnit;
 
+import javax.inject.Inject;
+import javax.inject.Singleton;
+
 /**
- * Decorated {@link ThreadPoolExecutor} Singleton class based on 'Initialization on Demand Holder'
- * pattern.
+ * Decorated {@link ThreadPoolExecutor}.
  */
+@Singleton
 public class JobExecutor implements ThreadExecutor {
 
     private static final int INITIAL_POOL_SIZE = 3;
@@ -20,17 +23,13 @@ public class JobExecutor implements ThreadExecutor {
     // Sets the amount of time an idle thread waits before terminating.
     private static final int KEEP_ALIVE_TIME = 10;
 
-    // Sets the Time Unit to seconds.
+    // Sets the TimeUnit to seconds.
     private static final TimeUnit KEEP_ALIVE_TIME_UNIT = TimeUnit.SECONDS;
 
     private final ThreadPoolExecutor threadPoolExecutor;
 
-    private static class LazyHolder {
-
-        private static final JobExecutor INSTANCE = new JobExecutor();
-    }
-
-    private JobExecutor() {
+    @Inject
+    public JobExecutor() {
 
         BlockingQueue<Runnable> workQueue = new LinkedBlockingQueue<>();
         threadPoolExecutor = new ThreadPoolExecutor(
@@ -39,10 +38,6 @@ public class JobExecutor implements ThreadExecutor {
                 KEEP_ALIVE_TIME,
                 KEEP_ALIVE_TIME_UNIT,
                 workQueue);
-    }
-
-    public static JobExecutor getInstance() {
-        return LazyHolder.INSTANCE;
     }
 
     @Override

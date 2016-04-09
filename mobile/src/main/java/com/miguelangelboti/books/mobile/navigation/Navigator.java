@@ -1,5 +1,7 @@
 package com.miguelangelboti.books.mobile.navigation;
 
+import javax.inject.Inject;
+
 import android.app.Activity;
 import android.app.ActivityOptions;
 import android.content.Context;
@@ -19,6 +21,10 @@ import com.miguelangelboti.books.mobile.main.view.activity.BookDetailActivity;
  * Class used to navigate through the application.
  */
 public class Navigator {
+
+    @Inject
+    public Navigator() {
+    }
 
     /**
      * Goes to the book details screen.

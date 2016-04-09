@@ -1,12 +1,15 @@
 package com.miguelangelboti.books.data.repository.datasources;
 
+import java.util.List;
+
+import javax.inject.Inject;
+import javax.inject.Singleton;
+
 import com.miguelangelboti.books.data.model.SearchResult;
 import com.miguelangelboti.books.data.model.mappers.BooksMapper;
 import com.miguelangelboti.books.data.repository.network.BooksService;
 import com.miguelangelboti.books.data.repository.network.RestClient;
 import com.miguelangelboti.books.domain.entities.Book;
-
-import java.util.List;
 
 import retrofit.Call;
 import retrofit.Response;
@@ -14,9 +17,14 @@ import retrofit.Response;
 /**
  * {@link BooksDataSource} implementation based on connections to the network.
  */
+@Singleton
 public class BooksNetworkDataSource implements BooksDataSource {
 
     RestClient restClient = new RestClient();
+
+    @Inject
+    public BooksNetworkDataSource() {
+    }
 
     @Override
     public void getBooks(final Callback callback, final String query) {

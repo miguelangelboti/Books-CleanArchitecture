@@ -1,19 +1,24 @@
 package com.miguelangelboti.books.mobile.main.model.mappers;
 
-import com.miguelangelboti.books.data.model.SearchResult;
-import com.miguelangelboti.books.domain.entities.Book;
-import com.miguelangelboti.books.mobile.main.model.BookViewModel;
-
 import java.util.ArrayList;
 import java.util.List;
 
 import javax.annotation.Nonnull;
 import javax.annotation.Nullable;
+import javax.inject.Inject;
+
+import com.miguelangelboti.books.data.model.SearchResult;
+import com.miguelangelboti.books.domain.entities.Book;
+import com.miguelangelboti.books.mobile.main.model.BookViewModel;
 
 /**
  * @author Miguel Ángel Botija.
  */
 public class BooksMapper {
+
+    @Inject
+    public BooksMapper() {
+    }
 
     /**
      * Transform a {@link SearchResult} into a list of {@link Book}.

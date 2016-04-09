@@ -1,36 +1,31 @@
 package com.miguelangelboti.books.data.repository;
 
+import java.util.List;
+
+import javax.annotation.Nonnull;
+import javax.inject.Inject;
+import javax.inject.Singleton;
+
 import com.miguelangelboti.books.data.repository.datasources.BooksDataSource;
-import com.miguelangelboti.books.data.repository.datasources.BooksLocalDataStore;
+import com.miguelangelboti.books.data.repository.datasources.BooksLocalDataSource;
 import com.miguelangelboti.books.data.repository.datasources.BooksNetworkDataSource;
 import com.miguelangelboti.books.domain.entities.Book;
 import com.miguelangelboti.books.domain.repository.BooksRepository;
 
-import java.util.List;
-
-import javax.annotation.Nonnull;
-
 /**
  * @author Miguel Ángel Botija.
  */
+@Singleton
 public class BooksRepositoryImpl implements BooksRepository {
 
-    private static BooksRepositoryImpl INSTANCE;
-
-    private final BooksLocalDataStore localDataStore;
+    private final BooksLocalDataSource localDataSource;
 
     private final BooksNetworkDataSource networkDataSource;
 
-    public BooksRepositoryImpl(BooksLocalDataStore localDataStore, BooksNetworkDataSource networkDataSource) {
-        this.localDataStore = localDataStore;
+    @Inject
+    public BooksRepositoryImpl(BooksLocalDataSource localDataSource, BooksNetworkDataSource networkDataSource) {
+        this.localDataSource = localDataSource;
         this.networkDataSource = networkDataSource;
-    }
-
-    public static synchronized BooksRepositoryImpl getInstance(BooksLocalDataStore localDataStore, BooksNetworkDataSource networkDataSource) {
-        if (INSTANCE == null) {
-            INSTANCE = new BooksRepositoryImpl(localDataStore, networkDataSource);
-        }
-        return INSTANCE;
     }
 
     @Override

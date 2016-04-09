@@ -7,7 +7,10 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 
+import com.miguelangelboti.books.mobile.di.HasComponent;
 import com.miguelangelboti.books.mobile.navigation.Navigator;
+
+import javax.inject.Inject;
 
 import butterknife.ButterKnife;
 
@@ -16,7 +19,8 @@ import butterknife.ButterKnife;
  */
 public abstract class BaseFragment extends Fragment implements com.miguelangelboti.books.mobile.base.view.View {
 
-    protected Navigator navigator = new Navigator();
+    @Inject
+    protected Navigator navigator;
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
@@ -30,6 +34,14 @@ public abstract class BaseFragment extends Fragment implements com.miguelangelbo
      * @return The layout ID of this fragment.
      */
     protected abstract int getLayoutId();
+
+    /**
+     * Gets a component for dependency injection by its type.
+     */
+    @SuppressWarnings("unchecked")
+    protected <C> C getComponent(Class<C> componentType) {
+        return componentType.cast(((HasComponent<C>) getActivity()).getComponent());
+    }
 
     @Override
     public void showProgress() {
