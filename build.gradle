@@ -1,5 +1,3 @@
-// Top-level build file where you can add configuration options common to all sub-projects/modules.
-
 buildscript {
     repositories {
         jcenter()
@@ -16,14 +14,29 @@ allprojects {
     }
 
     ext {
-        androidBuildToolsVersion = "23.0.2"
-        androidMinSdkVersion = 16
-        androidTargetSdkVersion = 23
-        androidCompileSdkVersion = 23
-        supportVersion = "23.1.1"
-        jsr305Version = "3.0.1"
+        minSdkVersion = 16
+        targetSdkVersion = 23
+        compileSdkVersion = 23
+        buildToolsVersion = "23.0.3"
+
+        // Android support libraries.
+        supportVersion = "23.3.0"
+
+        // Tests.
         jUnitVersion = "4.12"
         mockitoVersion = "1.10.19"
+
+        // Others.
+        retrofitVersion = "2.0.0-beta2"
+        gsonConverterVersion = "2.0.0-beta2"
+        butterknifeVersion = "7.0.1"
+        picassoVersion = "2.5.2"
+
+        daggerVersion = "2.0.2"
+        daggerCompilerVersion = "2.0.2"
+        jsr305Version = "3.0.1"
+        jsr250Version = "1.0"
+        javaxInjectVersion = "1"
     }
 }
 

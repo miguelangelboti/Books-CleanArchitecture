@@ -1,22 +1,21 @@
 apply plugin: 'com.android.library'
 
 android {
-    compileSdkVersion parent.ext.androidCompileSdkVersion
-    buildToolsVersion parent.ext.androidBuildToolsVersion
+    compileSdkVersion parent.ext.compileSdkVersion
+    buildToolsVersion parent.ext.buildToolsVersion
 
     defaultConfig {
-        minSdkVersion parent.ext.androidMinSdkVersion
-        targetSdkVersion parent.ext.androidTargetSdkVersion
+        minSdkVersion parent.ext.minSdkVersion
+        targetSdkVersion parent.ext.targetSdkVersion
     }
 }
 
 dependencies {
-    testCompile "junit:junit:4.12"
     compile project(":domain")
+    testCompile "junit:junit:$jUnitVersion"
     compile "com.android.support:appcompat-v7:$supportVersion"
     compile "com.google.code.findbugs:jsr305:$jsr305Version"
-    compile "com.squareup.retrofit:retrofit:2.0.0-beta2"
-    compile "com.squareup.retrofit:converter-gson:2.0.0-beta2"
-    compile "com.google.code.findbugs:jsr305:$jsr305Version"
-    compile "javax.inject:javax.inject:1"
+    compile "com.squareup.retrofit:retrofit:$retrofitVersion"
+    compile "com.squareup.retrofit:converter-gson:$gsonConverterVersion"
+    compile "javax.inject:javax.inject:$javaxInjectVersion"
 }
