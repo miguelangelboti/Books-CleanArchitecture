@@ -13,6 +13,7 @@ android {
 dependencies {
     compile project(":domain")
     testCompile "junit:junit:$jUnitVersion"
+    testCompile "org.mockito:mockito-core:$mockitoVersion"
     compile "com.android.support:appcompat-v7:$supportVersion"
     compile "com.google.code.findbugs:jsr305:$jsr305Version"
     compile "com.squareup.retrofit:retrofit:$retrofitVersion"

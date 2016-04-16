@@ -1,5 +1,7 @@
 package com.miguelangelboti.books.data.repository.network;
 
+import javax.inject.Inject;
+
 import retrofit.GsonConverterFactory;
 import retrofit.Retrofit;
 
@@ -12,6 +14,7 @@ public class RestClient {
 
     private BooksService booksService;
 
+    @Inject
     public RestClient() {
 
         Retrofit retrofit = new Retrofit.Builder()

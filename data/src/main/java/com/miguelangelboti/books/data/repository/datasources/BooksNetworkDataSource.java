@@ -20,10 +20,11 @@ import retrofit.Response;
 @Singleton
 public class BooksNetworkDataSource implements BooksDataSource {
 
-    RestClient restClient = new RestClient();
+    private RestClient restClient;
 
     @Inject
-    public BooksNetworkDataSource() {
+    public BooksNetworkDataSource(RestClient restClient) {
+        this.restClient = restClient;
     }
 
     @Override

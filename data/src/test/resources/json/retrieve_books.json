@@ -1,0 +1,825 @@
+{
+  "kind": "books#volumes",
+  "totalItems": 610,
+  "items": [
+    {
+      "kind": "books#volume",
+      "id": "Akha4zgQUzIC",
+      "etag": "2GXoxUtnV00",
+      "selfLink": "https://www.googleapis.com/books/v1/volumes/Akha4zgQUzIC",
+      "volumeInfo": {
+        "title": "Android: Programación de dispositivos móviles a través de ejemplos",
+        "authors": [
+          "José Enrique Amaro Soriano"
+        ],
+        "publisher": "Marcombo",
+        "publishedDate": "2011-10-01",
+        "description": "Android es el sistema operativo de Google para smartphones, tablets, y otros dispositivos móviles. En este libro se presentan, de una forma práctica, comprensible y concisa, los conceptos esenciales para desarrollar sus propias aplicaciones de Android, programando en lenguaje Java. El lector aprenderá a programar interfaces de usuario, entrada y salida de datos, lectura y escritura de ficheros, herramientas gráficas, gráficos interactivos, visualización de imágenes, reproducción de sonido, temas, recursos, procesos en background, diálogos de progreso, notificaciones, animaciones gráficas y simulaciones. Se incluye un apéndice Elementos de Java para el lector que no conozca el lenguaje de programación Java. Para lectores más avanzados, el libro se complementa con otro apéndice donde se introduce una completa aplicación científica para Android. Todos los conceptos se introducen con ejemplos que consisten en programas sencillos ilustrando algún aspecto concreto de Android o de Java. Todos los ejemplos se acompañan con capturas de pantalla. Este libro está dirigido a estudiantes, profesores y en general al principiante con escasos o nulos conocimientos de Java que quiere escribir rápidamente sus propios programas. También al profesional que quiere iniciarse de forma rápida en el desarrollo de aplicaciones para Android. José Enrique Amaro Sorinano es Doctor en Ciencias Físicas y Profesor Titular de la Universidad de Granada. Desarrolla su docencia e investigación en el departamento de Física Atómica, Molecular y Nuclear. Es investigador responsable del Grupo de Física Nuclear a Energías Intermedias y miembro del Instituto Carlos I de Física Teórica y Computacional. Actualmente imparte un curso de Programación de Android para Científicos en la Escuela de Posgrado de la Universidad de Granada.",
+        "industryIdentifiers": [
+          {
+            "type": "ISBN_13",
+            "identifier": "9788426717672"
+          },
+          {
+            "type": "ISBN_10",
+            "identifier": "8426717675"
+          }
+        ],
+        "readingModes": {
+          "text": true,
+          "image": true
+        },
+        "pageCount": 268,
+        "printType": "BOOK",
+        "categories": [
+          "Computers"
+        ],
+        "maturityRating": "NOT_MATURE",
+        "allowAnonLogging": false,
+        "contentVersion": "0.2.2.0.preview.3",
+        "imageLinks": {
+          "smallThumbnail": "http://books.google.es/books/content?id=Akha4zgQUzIC&printsec=frontcover&img=1&zoom=5&edge=curl&source=gbs_api",
+          "thumbnail": "http://books.google.es/books/content?id=Akha4zgQUzIC&printsec=frontcover&img=1&zoom=1&edge=curl&source=gbs_api"
+        },
+        "language": "es",
+        "previewLink": "http://books.google.es/books?id=Akha4zgQUzIC&printsec=frontcover&dq=android&hl=&cd=1&source=gbs_api",
+        "infoLink": "http://books.google.es/books?id=Akha4zgQUzIC&dq=android&hl=&source=gbs_api",
+        "canonicalVolumeLink": "http://books.google.es/books/about/Android_Programaci%C3%B3n_de_dispositivos_m.html?hl=&id=Akha4zgQUzIC"
+      },
+      "saleInfo": {
+        "country": "ES",
+        "saleability": "NOT_FOR_SALE",
+        "isEbook": false
+      },
+      "accessInfo": {
+        "country": "ES",
+        "viewability": "PARTIAL",
+        "embeddable": true,
+        "publicDomain": false,
+        "textToSpeechPermission": "ALLOWED",
+        "epub": {
+          "isAvailable": true,
+          "acsTokenLink": "http://books.google.es/books/download/Android_Programaci%C3%B3n_de_dispositivos_m-sample-epub.acsm?id=Akha4zgQUzIC&format=epub&output=acs4_fulfillment_token&dl_type=sample&source=gbs_api"
+        },
+        "pdf": {
+          "isAvailable": false
+        },
+        "webReaderLink": "http://books.google.es/books/reader?id=Akha4zgQUzIC&hl=&printsec=frontcover&output=reader&source=gbs_api",
+        "accessViewStatus": "SAMPLE",
+        "quoteSharingAllowed": false
+      },
+      "searchInfo": {
+        "textSnippet": "También al profesional que quiere iniciarse de forma rápida en el desarrollo de aplicaciones para Android. José Enrique Amaro Sorinano es Doctor en Ciencias Físicas y Profesor Titular de la Universidad de Granada."
+      }
+    },
+    {
+      "kind": "books#volume",
+      "id": "DnQkGjh2H3MC",
+      "etag": "XhO+1wKAc0c",
+      "selfLink": "https://www.googleapis.com/books/v1/volumes/DnQkGjh2H3MC",
+      "volumeInfo": {
+        "title": "Android",
+        "subtitle": "Guía de desarrollo de aplicaciones para Smartphones y Tabletas (2a edición)",
+        "authors": [
+          "Sylvain HÉBUTERNE - Sébastien PÉROCHON"
+        ],
+        "publisher": "Ediciones ENI",
+        "publishedDate": "2014",
+        "description": "Verdadera guía de aprendizaje, este libro acompaña al lector en el desarrollo deaplicaciones Android para Smartphones y Tabletas táctiles. Está dirigido a aquellos desarrolladores que posean unos conocimientos mínimos sobre programación orientada a objetos, lenguaje Java y entornos de desarrollo integrados como Eclipse o Android Studio, y cubre todas las versiones de Android, hasta la versión 4.4 inclusive. El libro presenta el proceso completo de creación de aplicaciones, desde la preparación del entorno de desarrollo hasta la publicación de la aplicación, y describe una gran selección de funcionalidades provistas por el sistema Android. A lo largo de este libro descubrirá, en primer lugar, la plataforma Android, instalará el entorno de desarrollo y creará, sin esperar más, su primera aplicación Android. Estudiará, a continuación, cómo construir la interfaz de usuario y conocerá los componentes fundamentales de la aplicación. Aprenderá a desarrollar interfaces complejas que seadapten a las pantallas de Tabletas y Smartphones y a construir sus propios componentes reutilizables. A continuación, se presentarán la persistencia de los datos, laprogramación concurrente, la seguridad y la comunicación de red. Se dedica un capítulo a explicar cómo integrar las redes sociales en sus aplicaciones. Para publicar aplicaciones con la mayor calidad posible, descubrirá cómo agregar trazasy probar su aplicación. Por último, se le guiará paso a paso para publicar sus aplicaciones a usuarios del mundo entero. La obra termina presentando cómo determinar la geolocalización y el uso de sensores integrados en los dispositivos Android. Se abordan, también, con detalle aspectos avanzados tales como la creación de AppWidget, la protección de aplicaciones de pago(LVL), las compras in-app así como las comunicaciones NFC. Tras su lectura, será capaz de desarrollar y publicar aplicaciones de calidad, nativas Android (en distintas versiones, hasta la versión 4.4 inclusive) para Smartphones y Tabletas táctiles. Por último, como complemento y para ilustrar de forma práctica el propósito del libro, el autor proporciona para su descarga en el sitio web www.ediciones-eni.com un proyecto completo que reúne todas las nociones presentadas en el libro. Interfaz de usuario, listas,procesamientos asíncronos, geolocalización, NFC, etc.: todos los módulos del proyecto son funcionales, se pueden explotar directamente y proveen una sólida base para sus desarrollos. Los capítulos del libro: Prólogo - El universo Android - Primeros pasos - Descubrir la interfaz de usuario - Los fundamentos - Completar la interfaz de usuario - Componentes principales de la aplicación - La persistencia de los datos - Construir interfaces complejas - Concurrencia, seguridad y red - Redes sociales - Trazas, depuración y pruebas - Publicar una aplicación - Sensores y geolocalización - La tecnología NFC - Funcionalidades avanzadas",
+        "industryIdentifiers": [
+          {
+            "type": "ISBN_10",
+            "identifier": "2746092298"
+          },
+          {
+            "type": "ISBN_13",
+            "identifier": "9782746092297"
+          }
+        ],
+        "readingModes": {
+          "text": false,
+          "image": true
+        },
+        "pageCount": 513,
+        "printType": "BOOK",
+        "maturityRating": "NOT_MATURE",
+        "allowAnonLogging": false,
+        "contentVersion": "0.1.0.0.preview.1",
+        "imageLinks": {
+          "smallThumbnail": "http://books.google.es/books/content?id=DnQkGjh2H3MC&printsec=frontcover&img=1&zoom=5&edge=curl&source=gbs_api",
+          "thumbnail": "http://books.google.es/books/content?id=DnQkGjh2H3MC&printsec=frontcover&img=1&zoom=1&edge=curl&source=gbs_api"
+        },
+        "language": "es",
+        "previewLink": "http://books.google.es/books?id=DnQkGjh2H3MC&printsec=frontcover&dq=android&hl=&cd=2&source=gbs_api",
+        "infoLink": "http://books.google.es/books?id=DnQkGjh2H3MC&dq=android&hl=&source=gbs_api",
+        "canonicalVolumeLink": "http://books.google.es/books/about/Android.html?hl=&id=DnQkGjh2H3MC"
+      },
+      "saleInfo": {
+        "country": "ES",
+        "saleability": "NOT_FOR_SALE",
+        "isEbook": false
+      },
+      "accessInfo": {
+        "country": "ES",
+        "viewability": "PARTIAL",
+        "embeddable": true,
+        "publicDomain": false,
+        "textToSpeechPermission": "ALLOWED",
+        "epub": {
+          "isAvailable": false
+        },
+        "pdf": {
+          "isAvailable": false
+        },
+        "webReaderLink": "http://books.google.es/books/reader?id=DnQkGjh2H3MC&hl=&printsec=frontcover&output=reader&source=gbs_api",
+        "accessViewStatus": "SAMPLE",
+        "quoteSharingAllowed": false
+      },
+      "searchInfo": {
+        "textSnippet": "Verdadera guía de aprendizaje, este libro acompaña al lector en el desarrollo deaplicaciones Android para Smartphones y Tabletas táctiles."
+      }
+    },
+    {
+      "kind": "books#volume",
+      "id": "HjyuwSmQTp8C",
+      "etag": "7owYu2dEKGU",
+      "selfLink": "https://www.googleapis.com/books/v1/volumes/HjyuwSmQTp8C",
+      "volumeInfo": {
+        "title": "Android",
+        "subtitle": "Las bases para un buen inicio en el desarrollo para Smartphones y Tabletas",
+        "authors": [
+          "Sébastien Pérochon"
+        ],
+        "publisher": "Ediciones ENI",
+        "publishedDate": "2012",
+        "industryIdentifiers": [
+          {
+            "type": "ISBN_10",
+            "identifier": "2746075172"
+          },
+          {
+            "type": "ISBN_13",
+            "identifier": "9782746075177"
+          }
+        ],
+        "readingModes": {
+          "text": false,
+          "image": true
+        },
+        "pageCount": 104,
+        "printType": "BOOK",
+        "categories": [
+          "Computers"
+        ],
+        "maturityRating": "NOT_MATURE",
+        "allowAnonLogging": false,
+        "contentVersion": "0.1.1.0.preview.1",
+        "imageLinks": {
+          "smallThumbnail": "http://books.google.es/books/content?id=HjyuwSmQTp8C&printsec=frontcover&img=1&zoom=5&edge=curl&source=gbs_api",
+          "thumbnail": "http://books.google.es/books/content?id=HjyuwSmQTp8C&printsec=frontcover&img=1&zoom=1&edge=curl&source=gbs_api"
+        },
+        "language": "es",
+        "previewLink": "http://books.google.es/books?id=HjyuwSmQTp8C&printsec=frontcover&dq=android&hl=&cd=3&source=gbs_api",
+        "infoLink": "http://books.google.es/books?id=HjyuwSmQTp8C&dq=android&hl=&source=gbs_api",
+        "canonicalVolumeLink": "http://books.google.es/books/about/Android.html?hl=&id=HjyuwSmQTp8C"
+      },
+      "saleInfo": {
+        "country": "ES",
+        "saleability": "NOT_FOR_SALE",
+        "isEbook": false
+      },
+      "accessInfo": {
+        "country": "ES",
+        "viewability": "PARTIAL",
+        "embeddable": true,
+        "publicDomain": false,
+        "textToSpeechPermission": "ALLOWED",
+        "epub": {
+          "isAvailable": false
+        },
+        "pdf": {
+          "isAvailable": false
+        },
+        "webReaderLink": "http://books.google.es/books/reader?id=HjyuwSmQTp8C&hl=&printsec=frontcover&output=reader&source=gbs_api",
+        "accessViewStatus": "SAMPLE",
+        "quoteSharingAllowed": false
+      }
+    },
+    {
+      "kind": "books#volume",
+      "id": "K9hnCJ_NGq4C",
+      "etag": "nulYzr4+bn4",
+      "selfLink": "https://www.googleapis.com/books/v1/volumes/K9hnCJ_NGq4C",
+      "volumeInfo": {
+        "title": "El Gran Libro de Android",
+        "authors": [
+          "Jesús Tomás Gironés"
+        ],
+        "publisher": "Marcombo",
+        "publishedDate": "2013-03-01",
+        "description": "En los últimos años, los teléfonos móviles están transformando la forma en que las personas se comunican. Los nuevos terminales ofrecen unas capacidades similares a las de un ordenador personal. Un teléfono móvil siempre está en el bolsillo del usuario, esto le convierte en el nuevo ordenador personal del siglo XXI. Android es la plataforma libre para el desarrollo de aplicaciones móviles creada por Google. En la actualidad se ha convertido en la plataforma líder frente a otras como iPhone o Windows Phone. Las aplicaciones Android están ampliando su rango de influencia a nuevos dispositivos tales como tabletas, sistemas empotrados o Google TV. Este libro pretende ser una guía para aquellos lectores que quieran introducirse en la programación en Android. Todos los capítulos son descritos por medio de sencillos ejemplos, aumentando su nivel de complejidad a medida que avanzan los capítulos. La obra está recomendada tanto para usuarios con poca experiencia, como para programadores experimentados. A lo largo del libro se desarrolla una aplicación de ejemplo, el mítico videojuego Asteroides. Comienza con una versión sencilla, que se irá completando capítulo a capítulo, para que incluya gráficos vectoriales y en mapa de bits, control mediante pantalla táctil y sensores, geo-localización, multimedia, ficheros, XML, SQL, acceso a Internet, servicios Web Así cómo publicar en el Google Play. El libro propone un aprendizaje activo, con actividades, muchas a través de Internet: -poli[Media] Más de 60 videos elaborados por el autor. -Ejercicio paso a paso: La mejor forma de aprender es practicando. -Práctica: Para afianzar lo aprendido hay que practicar. -Solución: Te será de ayuda si tienes problemas en las prácticas. -Recursos adicionales: Localiza rápidamente la información clave -Preguntas de repaso y reflexión: ¿Lo has entendido todo correctamente? Jesús Tomás es doctor en informática, profesor titular del Departamento de Comunicaciones en la Universidad Politécnica de Valencia. Trabaja en múltiples proyectos de investigación y transferencia de tecnología relacionados con inteligencia artificial. Ha publicado gran cantidad de trabajos en revistas científicas y varios libros didácticos sobre nuevas tecnologías. Tiene una amplia experiencia impartiendo cursos de formación para empresas.",
+        "industryIdentifiers": [
+          {
+            "type": "ISBN_13",
+            "identifier": "9788426719973"
+          },
+          {
+            "type": "ISBN_10",
+            "identifier": "842671997X"
+          }
+        ],
+        "readingModes": {
+          "text": true,
+          "image": true
+        },
+        "pageCount": 446,
+        "printType": "BOOK",
+        "categories": [
+          "Computers"
+        ],
+        "averageRating": 5.0,
+        "ratingsCount": 1,
+        "maturityRating": "NOT_MATURE",
+        "allowAnonLogging": false,
+        "contentVersion": "1.2.2.0.preview.3",
+        "imageLinks": {
+          "smallThumbnail": "http://books.google.es/books/content?id=K9hnCJ_NGq4C&printsec=frontcover&img=1&zoom=5&edge=curl&source=gbs_api",
+          "thumbnail": "http://books.google.es/books/content?id=K9hnCJ_NGq4C&printsec=frontcover&img=1&zoom=1&edge=curl&source=gbs_api"
+        },
+        "language": "es",
+        "previewLink": "http://books.google.es/books?id=K9hnCJ_NGq4C&printsec=frontcover&dq=android&hl=&cd=4&source=gbs_api",
+        "infoLink": "http://books.google.es/books?id=K9hnCJ_NGq4C&dq=android&hl=&source=gbs_api",
+        "canonicalVolumeLink": "http://books.google.es/books/about/El_Gran_Libro_de_Android.html?hl=&id=K9hnCJ_NGq4C"
+      },
+      "saleInfo": {
+        "country": "ES",
+        "saleability": "NOT_FOR_SALE",
+        "isEbook": false
+      },
+      "accessInfo": {
+        "country": "ES",
+        "viewability": "PARTIAL",
+        "embeddable": true,
+        "publicDomain": false,
+        "textToSpeechPermission": "ALLOWED",
+        "epub": {
+          "isAvailable": true,
+          "acsTokenLink": "http://books.google.es/books/download/El_Gran_Libro_de_Android-sample-epub.acsm?id=K9hnCJ_NGq4C&format=epub&output=acs4_fulfillment_token&dl_type=sample&source=gbs_api"
+        },
+        "pdf": {
+          "isAvailable": false
+        },
+        "webReaderLink": "http://books.google.es/books/reader?id=K9hnCJ_NGq4C&hl=&printsec=frontcover&output=reader&source=gbs_api",
+        "accessViewStatus": "SAMPLE",
+        "quoteSharingAllowed": false
+      },
+      "searchInfo": {
+        "textSnippet": "Jesús Tomás es doctor en informática, profesor titular del Departamento de Comunicaciones en la Universidad Politécnica de Valencia."
+      }
+    },
+    {
+      "kind": "books#volume",
+      "id": "uYEmWet7QtsC",
+      "etag": "MkflViuOaNQ",
+      "selfLink": "https://www.googleapis.com/books/v1/volumes/uYEmWet7QtsC",
+      "volumeInfo": {
+        "title": "Pro Android Python with SL4A",
+        "authors": [
+          "Paul Ferrill"
+        ],
+        "publisher": "Apress",
+        "publishedDate": "2011-06-27",
+        "description": "Pro Android Python with SL4A is for programmers and hobbyists who want to write apps for Android devices without having to learn Java first. Paul Ferrill leads you from installing the Scripting Layer for Android (SL4A) to writing small scripts, to more complicated and interesting projects, and finally to uploading and packaging your programs to an Android device. Android runs scripts in many scripting languages, but Python, Lua, and Beanshell are particularly popular. Most programmers know more than one programming language, so that they have the best tool for whatever task they want to accomplish. Pro Android Python with SL4A explores the world of Android scripting by introducing you to the most important open-source programming languages that are available on Android-based hardware. Pro Android Python with SL4A starts by exploring the Android software development kit and then shows you how to set up an Eclipse-based Android development environment. You then approach the world of Android programming by using Beanshell, which runs on the Dalvik, and learning how to write small programs to administer an Android device. Next, discover how Lua, a lightweight language perfectly suited for scripting on smaller devices, can work with Android. Lua can be used for small but important tasks, like SMS encryption and synchronizing photos with flickr. Last, but certainly not least, you will discover the world of Python scripting for SL4A, and the power contained within the full range of Python modules that can combine with the Android SDK. You'll learn to write small location-aware apps to get you started, but by the end of this book, you'll find yourself writing fully GUI-fied applications running on the Android desktop! Pro Android Python with SL4A is rounded out with a chapter on distributing and packaging scripts, a skill that you'll find very useful as you reach out to a wider audience with your programs. What you’ll learn Understand the SL4A Explore the Android software development kit Write scripts to administer an Android phone Write and execute full Python and applications Learn how to write simple apps using Facades Explore the full Android development process, from development to packaging Who this book is for This is a book for beginning and intermediate Android developers, and a book for anyone coding in Python, Lua or exploring Beanshell. Table of Contents Introduction Getting Started with Android Scripting Navigating the Android SDK Developing Androids Scripts with Eclipse Exploring the Android API Background Scripting Python Utilities Python Dialog-Based GUIs Python for GUI with WebUI Packaging and Distributing Your Scripts",
+        "industryIdentifiers": [
+          {
+            "type": "ISBN_13",
+            "identifier": "9781430235699"
+          },
+          {
+            "type": "ISBN_10",
+            "identifier": "1430235691"
+          }
+        ],
+        "readingModes": {
+          "text": true,
+          "image": true
+        },
+        "pageCount": 296,
+        "printType": "BOOK",
+        "categories": [
+          "Computers"
+        ],
+        "averageRating": 5.0,
+        "ratingsCount": 1,
+        "maturityRating": "NOT_MATURE",
+        "allowAnonLogging": false,
+        "contentVersion": "0.4.3.0.preview.3",
+        "imageLinks": {
+          "smallThumbnail": "http://books.google.es/books/content?id=uYEmWet7QtsC&printsec=frontcover&img=1&zoom=5&edge=curl&source=gbs_api",
+          "thumbnail": "http://books.google.es/books/content?id=uYEmWet7QtsC&printsec=frontcover&img=1&zoom=1&edge=curl&source=gbs_api"
+        },
+        "language": "en",
+        "previewLink": "http://books.google.es/books?id=uYEmWet7QtsC&printsec=frontcover&dq=android&hl=&cd=5&source=gbs_api",
+        "infoLink": "http://books.google.es/books?id=uYEmWet7QtsC&dq=android&hl=&source=gbs_api",
+        "canonicalVolumeLink": "http://books.google.es/books/about/Pro_Android_Python_with_SL4A.html?hl=&id=uYEmWet7QtsC"
+      },
+      "saleInfo": {
+        "country": "ES",
+        "saleability": "NOT_FOR_SALE",
+        "isEbook": false
+      },
+      "accessInfo": {
+        "country": "ES",
+        "viewability": "PARTIAL",
+        "embeddable": true,
+        "publicDomain": false,
+        "textToSpeechPermission": "ALLOWED",
+        "epub": {
+          "isAvailable": true,
+          "acsTokenLink": "http://books.google.es/books/download/Pro_Android_Python_with_SL4A-sample-epub.acsm?id=uYEmWet7QtsC&format=epub&output=acs4_fulfillment_token&dl_type=sample&source=gbs_api"
+        },
+        "pdf": {
+          "isAvailable": true,
+          "acsTokenLink": "http://books.google.es/books/download/Pro_Android_Python_with_SL4A-sample-pdf.acsm?id=uYEmWet7QtsC&format=pdf&output=acs4_fulfillment_token&dl_type=sample&source=gbs_api"
+        },
+        "webReaderLink": "http://books.google.es/books/reader?id=uYEmWet7QtsC&hl=&printsec=frontcover&output=reader&source=gbs_api",
+        "accessViewStatus": "SAMPLE",
+        "quoteSharingAllowed": false
+      },
+      "searchInfo": {
+        "textSnippet": "You&#39;ll learn to write small location-aware apps to get you started, but by the end of this book, you&#39;ll find yourself writing fully GUI-fied applications running on the Android desktop!"
+      }
+    },
+    {
+      "kind": "books#volume",
+      "id": "EF5txSsyBFUC",
+      "etag": "lAJArlno0nM",
+      "selfLink": "https://www.googleapis.com/books/v1/volumes/EF5txSsyBFUC",
+      "volumeInfo": {
+        "title": "Beginning Android 4",
+        "authors": [
+          "Mark Murphy",
+          "Grant Allen"
+        ],
+        "publisher": "Apress",
+        "publishedDate": "2012-03-15",
+        "description": "Beginning Android 4 is an update to Beginning Android 3, originally written by Mark Murphy. It is your first step on the path to creating marketable apps for the burgeoning Android Market, Amazon's Android Appstore, and more. Google’s Android operating-system has taken the industry by storm, going from its humble beginnings as a smartphone operating system to its current status as a platform for apps that run across a gamut of devices from phones to tablets to netbooks to televisions, and the list is sure to grow. Smart developers are not sitting idly by in the stands, but are jumping into the game of creating innovative and salable applications for this fast-growing, mobile- and consumer-device platform. If you’re not in the game yet, now is your chance! Beginning Android 4 is fresh with details on the latest iteration of the Android platform. Begin at the beginning by installing the tools and compiling a skeleton app. Move through creating layouts, employing widgets, taking user input, and giving back results. Soon you’ll be creating innovative applications involving multi-touch, multi-tasking, location-based feature sets using GPS. You’ll be drawing data live from the Internet using web services and delighting your customers with life-enhancing apps. Not since the PC era first began has there been this much opportunity for the common developer. What are you waiting for? Grab your copy of Beginning Android 4 and get started!",
+        "industryIdentifiers": [
+          {
+            "type": "ISBN_13",
+            "identifier": "9781430239857"
+          },
+          {
+            "type": "ISBN_10",
+            "identifier": "1430239859"
+          }
+        ],
+        "readingModes": {
+          "text": true,
+          "image": true
+        },
+        "pageCount": 604,
+        "printType": "BOOK",
+        "categories": [
+          "Computers"
+        ],
+        "averageRating": 4.0,
+        "ratingsCount": 11,
+        "maturityRating": "NOT_MATURE",
+        "allowAnonLogging": false,
+        "contentVersion": "1.4.3.0.preview.3",
+        "imageLinks": {
+          "smallThumbnail": "http://books.google.es/books/content?id=EF5txSsyBFUC&printsec=frontcover&img=1&zoom=5&edge=curl&source=gbs_api",
+          "thumbnail": "http://books.google.es/books/content?id=EF5txSsyBFUC&printsec=frontcover&img=1&zoom=1&edge=curl&source=gbs_api"
+        },
+        "language": "en",
+        "previewLink": "http://books.google.es/books?id=EF5txSsyBFUC&printsec=frontcover&dq=android&hl=&cd=6&source=gbs_api",
+        "infoLink": "http://books.google.es/books?id=EF5txSsyBFUC&dq=android&hl=&source=gbs_api",
+        "canonicalVolumeLink": "http://books.google.es/books/about/Beginning_Android_4.html?hl=&id=EF5txSsyBFUC"
+      },
+      "saleInfo": {
+        "country": "ES",
+        "saleability": "FOR_SALE",
+        "isEbook": true,
+        "listPrice": {
+          "amount": 39.12,
+          "currencyCode": "EUR"
+        },
+        "retailPrice": {
+          "amount": 37.16,
+          "currencyCode": "EUR"
+        },
+        "buyLink": "http://books.google.es/books?id=EF5txSsyBFUC&dq=android&hl=&buy=&source=gbs_api",
+        "offers": [
+          {
+            "finskyOfferType": 1,
+            "listPrice": {
+              "amountInMicros": 3.912E+7,
+              "currencyCode": "EUR"
+            },
+            "retailPrice": {
+              "amountInMicros": 3.716E+7,
+              "currencyCode": "EUR"
+            }
+          }
+        ]
+      },
+      "accessInfo": {
+        "country": "ES",
+        "viewability": "PARTIAL",
+        "embeddable": true,
+        "publicDomain": false,
+        "textToSpeechPermission": "ALLOWED",
+        "epub": {
+          "isAvailable": true,
+          "acsTokenLink": "http://books.google.es/books/download/Beginning_Android_4-sample-epub.acsm?id=EF5txSsyBFUC&format=epub&output=acs4_fulfillment_token&dl_type=sample&source=gbs_api"
+        },
+        "pdf": {
+          "isAvailable": true,
+          "acsTokenLink": "http://books.google.es/books/download/Beginning_Android_4-sample-pdf.acsm?id=EF5txSsyBFUC&format=pdf&output=acs4_fulfillment_token&dl_type=sample&source=gbs_api"
+        },
+        "webReaderLink": "http://books.google.es/books/reader?id=EF5txSsyBFUC&hl=&printsec=frontcover&output=reader&source=gbs_api",
+        "accessViewStatus": "SAMPLE",
+        "quoteSharingAllowed": false
+      },
+      "searchInfo": {
+        "textSnippet": "Beginning Android 4 is an update to Beginning Android 3, originally written by Mark Murphy."
+      }
+    },
+    {
+      "kind": "books#volume",
+      "id": "QCbUxHcYLskC",
+      "etag": "q3b2wC0nWbE",
+      "selfLink": "https://www.googleapis.com/books/v1/volumes/QCbUxHcYLskC",
+      "volumeInfo": {
+        "title": "AndEngine for Android Game Development Cookbook",
+        "authors": [
+          "Jayme Schroeder"
+        ],
+        "publisher": "Packt Publishing Ltd",
+        "publishedDate": "2013-01-01",
+        "description": "A Cookbook with wide range of recipes to allow you to learn game development with AndEngine quickly and efficiently. \"AndEngine for Android Game Development Cookbook\" is geared toward developers who are interested in working with the most up-to-date version of AndEngine, sporting the brand new GLES 2.0 branch. The book will be helpful for developers who are attempting to break into the mobile game market with plans to release fun and exciting games while eliminating a large portion of the learning curve that is otherwise inevitable when getting into AndEngine development. This book requires a working installation of eclipse and the required libraries, including AndEngine and its various extensions set up prior to working with the recipes.",
+        "industryIdentifiers": [
+          {
+            "type": "ISBN_13",
+            "identifier": "9781849518994"
+          },
+          {
+            "type": "ISBN_10",
+            "identifier": "1849518998"
+          }
+        ],
+        "readingModes": {
+          "text": true,
+          "image": true
+        },
+        "pageCount": 380,
+        "printType": "BOOK",
+        "categories": [
+          "Computers"
+        ],
+        "averageRating": 4.0,
+        "ratingsCount": 9,
+        "maturityRating": "NOT_MATURE",
+        "allowAnonLogging": false,
+        "contentVersion": "1.3.3.0.preview.3",
+        "imageLinks": {
+          "smallThumbnail": "http://books.google.es/books/content?id=QCbUxHcYLskC&printsec=frontcover&img=1&zoom=5&edge=curl&source=gbs_api",
+          "thumbnail": "http://books.google.es/books/content?id=QCbUxHcYLskC&printsec=frontcover&img=1&zoom=1&edge=curl&source=gbs_api"
+        },
+        "language": "ru",
+        "previewLink": "http://books.google.es/books?id=QCbUxHcYLskC&printsec=frontcover&dq=android&hl=&cd=7&source=gbs_api",
+        "infoLink": "http://books.google.es/books?id=QCbUxHcYLskC&dq=android&hl=&source=gbs_api",
+        "canonicalVolumeLink": "http://books.google.es/books/about/AndEngine_for_Android_Game_Development_C.html?hl=&id=QCbUxHcYLskC"
+      },
+      "saleInfo": {
+        "country": "ES",
+        "saleability": "FOR_SALE",
+        "isEbook": true,
+        "listPrice": {
+          "amount": 25.4,
+          "currencyCode": "EUR"
+        },
+        "retailPrice": {
+          "amount": 24.13,
+          "currencyCode": "EUR"
+        },
+        "buyLink": "http://books.google.es/books?id=QCbUxHcYLskC&dq=android&hl=&buy=&source=gbs_api",
+        "offers": [
+          {
+            "finskyOfferType": 1,
+            "listPrice": {
+              "amountInMicros": 2.54E+7,
+              "currencyCode": "EUR"
+            },
+            "retailPrice": {
+              "amountInMicros": 2.413E+7,
+              "currencyCode": "EUR"
+            }
+          }
+        ]
+      },
+      "accessInfo": {
+        "country": "ES",
+        "viewability": "PARTIAL",
+        "embeddable": true,
+        "publicDomain": false,
+        "textToSpeechPermission": "ALLOWED",
+        "epub": {
+          "isAvailable": true
+        },
+        "pdf": {
+          "isAvailable": true
+        },
+        "webReaderLink": "http://books.google.es/books/reader?id=QCbUxHcYLskC&hl=&printsec=frontcover&output=reader&source=gbs_api",
+        "accessViewStatus": "SAMPLE",
+        "quoteSharingAllowed": false
+      },
+      "searchInfo": {
+        "textSnippet": "This book requires a working installation of eclipse and the required libraries, including AndEngine and its various extensions set up prior to working with the recipes."
+      }
+    },
+    {
+      "kind": "books#volume",
+      "id": "h4FuBAAAQBAJ",
+      "etag": "hG6tLs2Tau4",
+      "selfLink": "https://www.googleapis.com/books/v1/volumes/h4FuBAAAQBAJ",
+      "volumeInfo": {
+        "title": "Android Apps for Absolute Beginners",
+        "authors": [
+          "Wallace Jackson"
+        ],
+        "publisher": "Apress",
+        "publishedDate": "2014-08-28",
+        "description": "Anybody can start building multimedia apps for the Android platform, and this book will show you how! Now updated to include both Android 4.4 and the new Android L, Android Apps for Absolute Beginners, Third Edition takes you through the process of getting your first Android apps up and running using plain English and practical examples. If you have a great idea for an Android app, but have never programmed before, then this book is for you. This book cuts through the fog of jargon and mystery that surrounds Android apps development, and gives you simple, step-by-step instructions to get you started. Teaches Android application development in language anyone can understand, giving you the best possible start in Android development Provides simple, step-by-step examples that make learning easy, allowing you to pick up the concepts without fuss Offers clear code descriptions and layout so that you can get your apps running as soon as possible This book covers both Android 4.4 (KitKat) and Android L, but is also backwards compatible to cover the previous Android releases since Android 1.5.",
+        "industryIdentifiers": [
+          {
+            "type": "ISBN_13",
+            "identifier": "9781484200193"
+          },
+          {
+            "type": "ISBN_10",
+            "identifier": "1484200195"
+          }
+        ],
+        "readingModes": {
+          "text": true,
+          "image": true
+        },
+        "pageCount": 712,
+        "printType": "BOOK",
+        "categories": [
+          "Computers"
+        ],
+        "maturityRating": "NOT_MATURE",
+        "allowAnonLogging": false,
+        "contentVersion": "2.6.5.0.preview.3",
+        "imageLinks": {
+          "smallThumbnail": "http://books.google.es/books/content?id=h4FuBAAAQBAJ&printsec=frontcover&img=1&zoom=5&edge=curl&source=gbs_api",
+          "thumbnail": "http://books.google.es/books/content?id=h4FuBAAAQBAJ&printsec=frontcover&img=1&zoom=1&edge=curl&source=gbs_api"
+        },
+        "language": "en",
+        "previewLink": "http://books.google.es/books?id=h4FuBAAAQBAJ&pg=PA250&dq=android&hl=&cd=8&source=gbs_api",
+        "infoLink": "http://books.google.es/books?id=h4FuBAAAQBAJ&dq=android&hl=&source=gbs_api",
+        "canonicalVolumeLink": "http://books.google.es/books/about/Android_Apps_for_Absolute_Beginners.html?hl=&id=h4FuBAAAQBAJ"
+      },
+      "saleInfo": {
+        "country": "ES",
+        "saleability": "FOR_SALE",
+        "isEbook": true,
+        "listPrice": {
+          "amount": 36.29,
+          "currencyCode": "EUR"
+        },
+        "retailPrice": {
+          "amount": 34.48,
+          "currencyCode": "EUR"
+        },
+        "buyLink": "http://books.google.es/books?id=h4FuBAAAQBAJ&dq=android&hl=&buy=&source=gbs_api",
+        "offers": [
+          {
+            "finskyOfferType": 1,
+            "listPrice": {
+              "amountInMicros": 3.629E+7,
+              "currencyCode": "EUR"
+            },
+            "retailPrice": {
+              "amountInMicros": 3.448E+7,
+              "currencyCode": "EUR"
+            }
+          }
+        ]
+      },
+      "accessInfo": {
+        "country": "ES",
+        "viewability": "PARTIAL",
+        "embeddable": true,
+        "publicDomain": false,
+        "textToSpeechPermission": "ALLOWED",
+        "epub": {
+          "isAvailable": true,
+          "acsTokenLink": "http://books.google.es/books/download/Android_Apps_for_Absolute_Beginners-sample-epub.acsm?id=h4FuBAAAQBAJ&format=epub&output=acs4_fulfillment_token&dl_type=sample&source=gbs_api"
+        },
+        "pdf": {
+          "isAvailable": true,
+          "acsTokenLink": "http://books.google.es/books/download/Android_Apps_for_Absolute_Beginners-sample-pdf.acsm?id=h4FuBAAAQBAJ&format=pdf&output=acs4_fulfillment_token&dl_type=sample&source=gbs_api"
+        },
+        "webReaderLink": "http://books.google.es/books/reader?id=h4FuBAAAQBAJ&hl=&printsec=frontcover&output=reader&source=gbs_api",
+        "accessViewStatus": "SAMPLE",
+        "quoteSharingAllowed": false
+      },
+      "searchInfo": {
+        "textSnippet": "The XML markup looks like this: <b>android</b>:background=&quot;Qdrawable/<br>\neditgalaxyscreen&quot; As you can see in Figure 7–33, using the Graphical Layout <br>\nEditor tab as a preview utility, the background image looks great, but causes <br>\ncontrast issues with&nbsp;..."
+      }
+    },
+    {
+      "kind": "books#volume",
+      "id": "X3w3D_Dv2lMC",
+      "etag": "FixW09knHv8",
+      "selfLink": "https://www.googleapis.com/books/v1/volumes/X3w3D_Dv2lMC",
+      "volumeInfo": {
+        "title": "Android Apps Marketing",
+        "subtitle": "Secrets to Selling Your Android App",
+        "authors": [
+          "Jeffrey Hughes"
+        ],
+        "publisher": "Pearson Education",
+        "publishedDate": "2010-09-20",
+        "description": "The Easy, Complete, Step-by-Step Guide to Marketing Your Android Apps! There are huge profits to be made in selling Android apps! But with more than 70,000 apps now available, posting your app to the Android Market is no longer enough. You need to market your app effectively. Don’t know much about marketing? Don’t worry: This book gives you all the step-by-step help you’ll need. Top app marketing consultant Jeffrey Hughes walks you through building a winning marketing plan, crafting highly competitive apps, choosing your message, building buzz, and connecting with people who’ll actually buy your app. Packed with examples, this book makes Android apps marketing easy! You’ll learn how to Identify your app’s unique value, target audience, and total message Understand the Android Market’s dynamics Cut through clutter and get your app into the top selling categories Set the right price for your app and effectively sell its value Get reviewers to recommend your apps Write effective press releases Time your marketing and publicity for maximum effectiveness Blog about your app and get the attention of influential bloggers Use Facebook, Twitter, YouTube, and other social media to generate buzz Use promotions and cross-marketing just like professional marketers do Measure and improve your results with Android Analytics Generate a loyal audience that will buy your next app, too Earn steady revenue, build a brand, and make a real business out of app development",
+        "industryIdentifiers": [
+          {
+            "type": "ISBN_10",
+            "identifier": "0132378256"
+          },
+          {
+            "type": "ISBN_13",
+            "identifier": "9780132378253"
+          }
+        ],
+        "readingModes": {
+          "text": true,
+          "image": true
+        },
+        "pageCount": 304,
+        "printType": "BOOK",
+        "categories": [
+          "Computers"
+        ],
+        "averageRating": 3.5,
+        "ratingsCount": 10,
+        "maturityRating": "NOT_MATURE",
+        "allowAnonLogging": false,
+        "contentVersion": "1.6.5.0.preview.3",
+        "imageLinks": {
+          "smallThumbnail": "http://books.google.es/books/content?id=X3w3D_Dv2lMC&printsec=frontcover&img=1&zoom=5&edge=curl&source=gbs_api",
+          "thumbnail": "http://books.google.es/books/content?id=X3w3D_Dv2lMC&printsec=frontcover&img=1&zoom=1&edge=curl&source=gbs_api"
+        },
+        "language": "en",
+        "previewLink": "http://books.google.es/books?id=X3w3D_Dv2lMC&printsec=frontcover&dq=android&hl=&cd=9&source=gbs_api",
+        "infoLink": "http://books.google.es/books?id=X3w3D_Dv2lMC&dq=android&hl=&source=gbs_api",
+        "canonicalVolumeLink": "http://books.google.es/books/about/Android_Apps_Marketing.html?hl=&id=X3w3D_Dv2lMC"
+      },
+      "saleInfo": {
+        "country": "ES",
+        "saleability": "FOR_SALE",
+        "isEbook": true,
+        "listPrice": {
+          "amount": 16.93,
+          "currencyCode": "EUR"
+        },
+        "retailPrice": {
+          "amount": 16.08,
+          "currencyCode": "EUR"
+        },
+        "buyLink": "http://books.google.es/books?id=X3w3D_Dv2lMC&dq=android&hl=&buy=&source=gbs_api",
+        "offers": [
+          {
+            "finskyOfferType": 1,
+            "listPrice": {
+              "amountInMicros": 1.693E+7,
+              "currencyCode": "EUR"
+            },
+            "retailPrice": {
+              "amountInMicros": 1.608E+7,
+              "currencyCode": "EUR"
+            }
+          }
+        ]
+      },
+      "accessInfo": {
+        "country": "ES",
+        "viewability": "PARTIAL",
+        "embeddable": true,
+        "publicDomain": false,
+        "textToSpeechPermission": "ALLOWED_FOR_ACCESSIBILITY",
+        "epub": {
+          "isAvailable": false
+        },
+        "pdf": {
+          "isAvailable": false
+        },
+        "webReaderLink": "http://books.google.es/books/reader?id=X3w3D_Dv2lMC&hl=&printsec=frontcover&output=reader&source=gbs_api",
+        "accessViewStatus": "SAMPLE",
+        "quoteSharingAllowed": false
+      },
+      "searchInfo": {
+        "textSnippet": "Packed with examples, this book makes Android apps marketing easy!"
+      }
+    },
+    {
+      "kind": "books#volume",
+      "id": "OFXJXbCXjTgC",
+      "etag": "MTTmvVByAAg",
+      "selfLink": "https://www.googleapis.com/books/v1/volumes/OFXJXbCXjTgC",
+      "volumeInfo": {
+        "title": "Android Programming",
+        "subtitle": "The Big Nerd Ranch Guide",
+        "authors": [
+          "Brian Hardy",
+          "Bill Phillips"
+        ],
+        "publisher": "Addison-Wesley Professional",
+        "publishedDate": "2013-04-09",
+        "description": "Android Programming: The Big Nerd Ranch Guide: is an introductory Android book for programmers with Java experience. Based on Big Nerd Ranch’s popular Android Bootcamp course, this guide will lead you through the wilderness using hands-on example apps combined with clear explanations of key concepts and APIs. This book focuses on practical techniques for developing apps compatible with all versions of Android widely used today (Android 2.2 - 4.2). Write and run code every step of the way – creating apps that catalog crime scenes, browse photos, track your jogging route, and more. Each chapter and app has been designed and tested to provide the knowledge and experience you need to get started in Android development. Write and run code every step of the way — creating apps that catalog crime scenes, browse photos, track your jogging route, and more. Each chapter and app has been designed and tested to provide the knowledge and experience you need to get started in Android development. \"Big Nerd Ranch provided the training we needed to get hundreds of engineers building skillfully on Android. This book is a great distillation of that training and will be a huge help to anyone looking to ramp up as well.\" – Mike Shaver, Director of Mobile Engineering, Facebook \"…a must-have for the developer just starting in Android or ready for more advanced techniques. I was impressed with this book’s content and clarity of presentation. The authors explain simple and complex Android topics with equal ease.\" – James Steele, author of The Android Developer's Cookbook",
+        "industryIdentifiers": [
+          {
+            "type": "ISBN_13",
+            "identifier": "9780132869102"
+          },
+          {
+            "type": "ISBN_10",
+            "identifier": "0132869101"
+          }
+        ],
+        "readingModes": {
+          "text": true,
+          "image": true
+        },
+        "pageCount": 580,
+        "printType": "BOOK",
+        "categories": [
+          "Computers"
+        ],
+        "averageRating": 4.0,
+        "ratingsCount": 21,
+        "maturityRating": "NOT_MATURE",
+        "allowAnonLogging": false,
+        "contentVersion": "2.7.6.0.preview.3",
+        "imageLinks": {
+          "smallThumbnail": "http://books.google.es/books/content?id=OFXJXbCXjTgC&printsec=frontcover&img=1&zoom=5&edge=curl&source=gbs_api",
+          "thumbnail": "http://books.google.es/books/content?id=OFXJXbCXjTgC&printsec=frontcover&img=1&zoom=1&edge=curl&source=gbs_api"
+        },
+        "language": "en",
+        "previewLink": "http://books.google.es/books?id=OFXJXbCXjTgC&printsec=frontcover&dq=android&hl=&cd=10&source=gbs_api",
+        "infoLink": "http://books.google.es/books?id=OFXJXbCXjTgC&dq=android&hl=&source=gbs_api",
+        "canonicalVolumeLink": "http://books.google.es/books/about/Android_Programming.html?hl=&id=OFXJXbCXjTgC"
+      },
+      "saleInfo": {
+        "country": "ES",
+        "saleability": "FOR_SALE",
+        "isEbook": true,
+        "listPrice": {
+          "amount": 35.08,
+          "currencyCode": "EUR"
+        },
+        "retailPrice": {
+          "amount": 33.33,
+          "currencyCode": "EUR"
+        },
+        "buyLink": "http://books.google.es/books?id=OFXJXbCXjTgC&dq=android&hl=&buy=&source=gbs_api",
+        "offers": [
+          {
+            "finskyOfferType": 1,
+            "listPrice": {
+              "amountInMicros": 3.508E+7,
+              "currencyCode": "EUR"
+            },
+            "retailPrice": {
+              "amountInMicros": 3.333E+7,
+              "currencyCode": "EUR"
+            }
+          }
+        ]
+      },
+      "accessInfo": {
+        "country": "ES",
+        "viewability": "PARTIAL",
+        "embeddable": true,
+        "publicDomain": false,
+        "textToSpeechPermission": "ALLOWED_FOR_ACCESSIBILITY",
+        "epub": {
+          "isAvailable": false
+        },
+        "pdf": {
+          "isAvailable": false
+        },
+        "webReaderLink": "http://books.google.es/books/reader?id=OFXJXbCXjTgC&hl=&printsec=frontcover&output=reader&source=gbs_api",
+        "accessViewStatus": "SAMPLE",
+        "quoteSharingAllowed": false
+      },
+      "searchInfo": {
+        "textSnippet": "This book focuses on practical techniques for developing apps compatible with all versions of Android widely used today (Android 2.2 - 4.2)."
+      }
+    }
+  ]
+}
