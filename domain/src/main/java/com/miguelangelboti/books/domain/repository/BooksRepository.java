@@ -1,10 +1,10 @@
 package com.miguelangelboti.books.domain.repository;
 
-import com.miguelangelboti.books.domain.entities.Book;
-
 import java.util.List;
 
 import javax.annotation.Nonnull;
+
+import com.miguelangelboti.books.domain.entities.Book;
 
 /**
  * Interface definition for a books repository.
@@ -17,12 +17,12 @@ public interface BooksRepository {
      * @param callback The callback to be invoked when search process has been completed.
      * @param query The query to search.
      */
-    void getBooks(Callback callback, String query);
+    void doBookSearch(BookSearchCallback callback, String query);
 
     /**
      * Callback definition to be invoked when search process has been completed.
      */
-    interface Callback {
+    interface BookSearchCallback {
 
         void onSuccess(@Nonnull List<Book> books);
 

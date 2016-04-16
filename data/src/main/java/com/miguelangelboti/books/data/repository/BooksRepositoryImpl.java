@@ -29,7 +29,7 @@ public class BooksRepositoryImpl implements BooksRepository {
     }
 
     @Override
-    public void getBooks(final Callback callback, String query) {
+    public void doBookSearch(final BookSearchCallback callback, String query) {
 
         networkDataSource.getBooks(new BooksDataSource.Callback() {
             @Override

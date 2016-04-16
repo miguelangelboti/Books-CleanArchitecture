@@ -1,4 +1,4 @@
-package com.miguelangelboti.books.domain.interactor.books;
+package com.miguelangelboti.books.domain.interactor.search;
 
 import org.junit.Before;
 import org.junit.Test;
@@ -8,6 +8,7 @@ import org.mockito.stubbing.Answer;
 import com.miguelangelboti.books.domain.entities.Book;
 import com.miguelangelboti.books.domain.executor.ThreadExecutorMock;
 import com.miguelangelboti.books.domain.repository.BooksRepository;
+import com.miguelangelboti.books.domain.repository.BooksRepository.BookSearchCallback;
 
 import static org.mockito.Matchers.any;
 import static org.mockito.Matchers.anyListOf;
@@ -41,7 +42,7 @@ public class SearchInteractorImplTest {
     public void whenQueryIsNull_RequestFails() {
 
         interactorUnderTest.execute(mockCallback, null);
-        verify(mockRepository, never()).getBooks(any(BooksRepository.Callback.class), anyString());
+        verify(mockRepository, never()).doBookSearch(any(BookSearchCallback.class), anyString());
         verify(mockCallback).onError();
     }
 
@@ -49,7 +50,7 @@ public class SearchInteractorImplTest {
     public void whenQueryIsEmpty_RequestFails() {
 
         interactorUnderTest.execute(mockCallback, "");
-        verify(mockRepository, never()).getBooks(any(BooksRepository.Callback.class), anyString());
+        verify(mockRepository, never()).doBookSearch(any(BookSearchCallback.class), anyString());
         verify(mockCallback).onError();
     }
 
@@ -59,14 +60,14 @@ public class SearchInteractorImplTest {
         doAnswer(new Answer() {
             @Override
             public Object answer(InvocationOnMock invocation) throws Throwable {
-                BooksRepository.Callback callback = (BooksRepository.Callback) invocation.getArguments()[0];
+                BookSearchCallback callback = (BookSearchCallback) invocation.getArguments()[0];
                 callback.onSuccess(anyListOf(Book.class));
                 return null;
             }
-        }).when(mockRepository).getBooks(any(BooksRepository.Callback.class), anyString());
+        }).when(mockRepository).doBookSearch(any(BookSearchCallback.class), anyString());
 
         interactorUnderTest.execute(mockCallback, "book");
-        verify(mockRepository).getBooks(any(BooksRepository.Callback.class), anyString());
+        verify(mockRepository).doBookSearch(any(BookSearchCallback.class), anyString());
         verify(mockCallback).onSuccess(anyListOf(Book.class));
     }
 }

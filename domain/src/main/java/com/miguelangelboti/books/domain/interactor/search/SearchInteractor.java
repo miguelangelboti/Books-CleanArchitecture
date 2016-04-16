@@ -1,4 +1,4 @@
-package com.miguelangelboti.books.domain.interactor.books;
+package com.miguelangelboti.books.domain.interactor.search;
 
 import com.miguelangelboti.books.domain.entities.Book;
 

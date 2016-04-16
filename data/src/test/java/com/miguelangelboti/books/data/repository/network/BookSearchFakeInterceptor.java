@@ -13,7 +13,7 @@ import com.squareup.okhttp.ResponseBody;
 /**
  * @author Miguel Ángel Botija.
  */
-public class BooksSearchFakeInterceptor implements Interceptor {
+public class BookSearchFakeInterceptor implements Interceptor {
 
     @Override
     public Response intercept(Chain chain) throws IOException {

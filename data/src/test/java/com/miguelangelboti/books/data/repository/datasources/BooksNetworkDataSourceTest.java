@@ -7,7 +7,7 @@ import org.mockito.invocation.InvocationOnMock;
 import org.mockito.stubbing.Answer;
 
 import com.miguelangelboti.books.data.repository.network.BooksService;
-import com.miguelangelboti.books.data.repository.network.BooksSearchFakeInterceptor;
+import com.miguelangelboti.books.data.repository.network.BookSearchFakeInterceptor;
 import com.miguelangelboti.books.data.repository.network.RestClient;
 import com.miguelangelboti.books.domain.entities.Book;
 import com.squareup.okhttp.OkHttpClient;
@@ -41,7 +41,7 @@ public class BooksNetworkDataSourceTest {
             public Object answer(InvocationOnMock invocation) throws Throwable {
 
                 OkHttpClient client = new OkHttpClient();
-                client.interceptors().add(new BooksSearchFakeInterceptor());
+                client.interceptors().add(new BookSearchFakeInterceptor());
 
                 return new Retrofit.Builder()
                         .baseUrl(BASE_URL)

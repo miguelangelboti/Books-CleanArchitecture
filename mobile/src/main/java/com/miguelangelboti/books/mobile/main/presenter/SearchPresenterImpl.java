@@ -1,7 +1,7 @@
 package com.miguelangelboti.books.mobile.main.presenter;
 
 import com.miguelangelboti.books.domain.entities.Book;
-import com.miguelangelboti.books.domain.interactor.books.SearchInteractor;
+import com.miguelangelboti.books.domain.interactor.search.SearchInteractor;
 import com.miguelangelboti.books.mobile.main.model.BookViewModel;
 import com.miguelangelboti.books.mobile.main.model.mappers.BooksMapper;
 import com.miguelangelboti.books.mobile.main.view.SearchView;

@@ -1,4 +1,4 @@
-package com.miguelangelboti.books.domain.interactor.books;
+package com.miguelangelboti.books.domain.interactor.search;
 
 import java.util.List;
 
@@ -10,8 +10,9 @@ import com.miguelangelboti.books.domain.executor.PostExecutionThread;
 import com.miguelangelboti.books.domain.executor.ThreadExecutor;
 import com.miguelangelboti.books.domain.interactor.BaseInteractor;
 import com.miguelangelboti.books.domain.repository.BooksRepository;
+import com.miguelangelboti.books.domain.repository.BooksRepository.BookSearchCallback;
 
-public class SearchInteractorImpl extends BaseInteractor implements SearchInteractor, BooksRepository.Callback {
+public class SearchInteractorImpl extends BaseInteractor implements SearchInteractor, BookSearchCallback {
 
     private final BooksRepository repository;
 
@@ -39,7 +40,7 @@ public class SearchInteractorImpl extends BaseInteractor implements SearchIntera
         if ((query == null) || (query.trim().length() == 0)) {
             callback.onError();
         } else {
-            repository.getBooks(this, query);
+            repository.doBookSearch(this, query);
         }
     }
 
