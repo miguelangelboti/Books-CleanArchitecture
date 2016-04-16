@@ -1,27 +1,22 @@
 # Mac filetypes
 .DS_Store
 
-# built application files
+# Built application files
 *.apk
 *.ap_
 
-# files for the dex VM
+# Files for the dex VM
 *.dex
 
 # Java class files
 *.class
 
-# generated files
+# Generated files
 bin/
 gen/
 
 # Local configuration file (sdk path, etc)
 local.properties
-
-# Eclipse project files
-proguard/
-.metadata/
-
 
 # Intellij project files
 *.iml
@@ -30,10 +25,10 @@ proguard/
 .idea/
 out/
 
-# anothers
+# Anothers
 .orig
 
-#gradle
+# Gradle
 build/
 .gradle/
 signing.properties

@@ -22,6 +22,8 @@ allprojects {
         androidCompileSdkVersion = 23
         supportVersion = "23.1.1"
         jsr305Version = "3.0.1"
+        jUnitVersion = "4.12"
+        mockitoVersion = "1.10.19"
     }
 }
 
