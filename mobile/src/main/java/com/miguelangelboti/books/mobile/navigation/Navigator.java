@@ -1,7 +1,5 @@
 package com.miguelangelboti.books.mobile.navigation;
 
-import javax.inject.Inject;
-
 import android.app.Activity;
 import android.app.ActivityOptions;
 import android.content.Context;
@@ -16,6 +14,8 @@ import android.view.View;
 import com.miguelangelboti.books.R;
 import com.miguelangelboti.books.mobile.main.model.BookViewModel;
 import com.miguelangelboti.books.mobile.main.view.activity.BookDetailActivity;
+
+import javax.inject.Inject;
 
 /**
  * Class used to navigate through the application.
@@ -32,8 +32,9 @@ public class Navigator {
      */
     public void navigateToBooksDetails(Context context, BookViewModel book, View imageView, View textView01, View textView02) {
 
-        if (context != null) {
-            Intent intent = BookDetailActivity.getCallingIntent(context, book);
+        if ((context != null) && (book != null) && (book.getId() != null)) {
+
+            Intent intent = BookDetailActivity.getCallingIntent(context, book.getId(), book.getTitle());
             Bundle bundle = null;
 
             if (android.os.Build.VERSION.SDK_INT >= android.os.Build.VERSION_CODES.LOLLIPOP) {

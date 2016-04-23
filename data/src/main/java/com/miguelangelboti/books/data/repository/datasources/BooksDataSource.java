@@ -11,12 +11,21 @@ import javax.annotation.Nonnull;
  */
 public interface BooksDataSource {
 
-    interface Callback {
+    interface GetBooksCallback {
 
         void onSuccess(@Nonnull List<Book> books);
 
-        void onError(Exception exception);
+        void onError(@Nonnull Exception exception);
     }
 
-    void getBooks(Callback callback, String query);
+    void getBooks(@Nonnull GetBooksCallback callback, String query);
+
+    interface GetBookCallback {
+
+        void onSuccess(@Nonnull Book book);
+
+        void onError(@Nonnull Exception exception);
+    }
+
+    void getBook(@Nonnull GetBookCallback callback, String bookId);
 }

@@ -79,8 +79,11 @@ public class SearchRecyclerViewAdapter extends RecyclerView.Adapter<SearchRecycl
     public class ViewHolder extends RecyclerView.ViewHolder {
 
         public ImageView imageView;
+
         public TextView textView01;
+
         public TextView textView02;
+
         public TextView textView03;
 
         public ViewHolder(View view) {

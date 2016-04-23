@@ -13,7 +13,9 @@ import android.view.View;
 public class LinearSpacingItemDecoration extends RecyclerView.ItemDecoration {
 
     private int space;
+
     private boolean addSpaceFirstItem;
+
     private boolean addSpaceLastItem;
 
     public LinearSpacingItemDecoration(Context context, int space) {

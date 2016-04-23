@@ -7,6 +7,7 @@ import javax.inject.Inject;
 import javax.inject.Singleton;
 
 import com.miguelangelboti.books.data.repository.datasources.BooksDataSource;
+import com.miguelangelboti.books.data.repository.datasources.BooksDataSource.GetBooksCallback;
 import com.miguelangelboti.books.data.repository.datasources.BooksLocalDataSource;
 import com.miguelangelboti.books.data.repository.datasources.BooksNetworkDataSource;
 import com.miguelangelboti.books.domain.entities.Book;
@@ -31,16 +32,48 @@ public class BooksRepositoryImpl implements BooksRepository {
     @Override
     public void doBookSearch(final BookSearchCallback callback, String query) {
 
-        networkDataSource.getBooks(new BooksDataSource.Callback() {
+        networkDataSource.getBooks(new GetBooksCallback() {
             @Override
             public void onSuccess(@Nonnull List<Book> books) {
+                localDataSource.setBooks(books);
                 callback.onSuccess(books);
             }
 
             @Override
-            public void onError(Exception exception) {
+            public void onError(@Nonnull Exception exception) {
                 callback.onError();
             }
         }, query);
+    }
+
+    @Override
+    public void getBook(final GetBookCallback callback, final String id) {
+
+        localDataSource.getBook(new BooksDataSource.GetBookCallback() {
+            @Override
+            public void onSuccess(@Nonnull Book book) {
+                callback.onSuccess(book);
+            }
+
+            @Override
+            public void onError(@Nonnull Exception exception) {
+                getBookFromNetwork(callback, id);
+            }
+        }, id);
+    }
+
+    private void getBookFromNetwork(final GetBookCallback callback, String id) {
+
+        networkDataSource.getBook(new BooksDataSource.GetBookCallback() {
+            @Override
+            public void onSuccess(@Nonnull Book book) {
+                callback.onSuccess(book);
+            }
+
+            @Override
+            public void onError(@Nonnull Exception exception) {
+                callback.onError();
+            }
+        }, id);
     }
 }

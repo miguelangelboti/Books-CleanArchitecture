@@ -20,13 +20,13 @@ public class SearchModule {
 
     @Provides
     @PerActivity
-    SearchInteractor provideGetSearchInteractor(ThreadExecutor threadExecutor, PostExecutionThread postExecutionThread, BooksRepository booksRepository) {
+    SearchInteractor provideSearchInteractor(ThreadExecutor threadExecutor, PostExecutionThread postExecutionThread, BooksRepository booksRepository) {
         return new SearchInteractorImpl(threadExecutor, postExecutionThread, booksRepository);
     }
 
     @Provides
     @PerActivity
-    SearchPresenter provideGetSearchPresenter(SearchPresenterImpl searchPresenter) {
+    SearchPresenter provideSearchPresenter(SearchPresenterImpl searchPresenter) {
         return searchPresenter;
     }
 }

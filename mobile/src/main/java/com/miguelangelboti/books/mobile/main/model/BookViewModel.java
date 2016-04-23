@@ -1,21 +1,35 @@
 package com.miguelangelboti.books.mobile.main.model;
 
-import android.os.Parcel;
-import android.os.Parcelable;
-
 import java.util.List;
 
-public class BookViewModel implements Parcelable {
+public class BookViewModel {
+
+    private final String id;
 
     private final String title;
+
     private final List<String> authors;
+
     private final String publishedDate;
+
     private final String description;
+
     private final int pageCount;
+
     private final String imageUrl;
+
     private final String webReaderLink;
 
-    public BookViewModel(String title, List<String> authors, String publishedDate, String description, Integer pageCount, String imageUrl, String webReaderLink) {
+    public BookViewModel(String id,
+                         String title,
+                         List<String> authors,
+                         String publishedDate,
+                         String description,
+                         Integer pageCount,
+                         String imageUrl,
+                         String webReaderLink) {
+
+        this.id = id;
         this.title = title;
         this.authors = authors;
         this.publishedDate = publishedDate;
@@ -25,14 +39,8 @@ public class BookViewModel implements Parcelable {
         this.webReaderLink = webReaderLink;
     }
 
-    protected BookViewModel(Parcel in) {
-        title = in.readString();
-        authors = in.createStringArrayList();
-        publishedDate = in.readString();
-        description = in.readString();
-        pageCount = in.readInt();
-        imageUrl = in.readString();
-        webReaderLink = in.readString();
+    public String getId() {
+        return id;
     }
 
     public String getTitle() {
@@ -62,32 +70,5 @@ public class BookViewModel implements Parcelable {
     public String getWebReaderLink() {
         return webReaderLink;
     }
-
-    public static final Creator<BookViewModel> CREATOR = new Creator<BookViewModel>() {
-        @Override
-        public BookViewModel createFromParcel(Parcel in) {
-            return new BookViewModel(in);
-        }
-
-        @Override
-        public BookViewModel[] newArray(int size) {
-            return new BookViewModel[size];
-        }
-    };
-
-    @Override
-    public int describeContents() {
-        return 0;
-    }
-
-    @Override
-    public void writeToParcel(Parcel dest, int flags) {
-        dest.writeString(title);
-        dest.writeStringList(authors);
-        dest.writeString(publishedDate);
-        dest.writeString(description);
-        dest.writeInt(pageCount);
-        dest.writeString(imageUrl);
-        dest.writeString(webReaderLink);
-    }
 }
+

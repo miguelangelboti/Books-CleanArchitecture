@@ -3,7 +3,6 @@ package com.miguelangelboti.books.mobile.di.components;
 import com.miguelangelboti.books.mobile.di.PerActivity;
 import com.miguelangelboti.books.mobile.di.modules.ActivityModule;
 import com.miguelangelboti.books.mobile.di.modules.SearchModule;
-import com.miguelangelboti.books.mobile.main.view.activity.BookDetailActivity;
 import com.miguelangelboti.books.mobile.main.view.fragment.SearchFragment;
 
 import dagger.Component;
@@ -16,6 +15,4 @@ import dagger.Component;
 public interface SearchComponent extends ActivityComponent {
 
     void inject(SearchFragment searchFragment);
-
-    void inject(BookDetailActivity bookDetailActivity);
 }

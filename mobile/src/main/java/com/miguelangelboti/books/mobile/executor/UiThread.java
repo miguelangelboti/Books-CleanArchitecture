@@ -1,12 +1,12 @@
 package com.miguelangelboti.books.mobile.executor;
 
-import javax.inject.Inject;
-import javax.inject.Singleton;
-
 import android.os.Handler;
 import android.os.Looper;
 
 import com.miguelangelboti.books.domain.executor.PostExecutionThread;
+
+import javax.inject.Inject;
+import javax.inject.Singleton;
 
 /**
  * MainThread (UI Thread) implementation based on a Handler instantiated with the main application Looper.

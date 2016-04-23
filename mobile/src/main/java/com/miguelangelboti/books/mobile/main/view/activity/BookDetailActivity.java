@@ -4,7 +4,6 @@ import android.content.Context;
 import android.content.Intent;
 import android.os.Build;
 import android.os.Bundle;
-import android.os.Parcelable;
 import android.support.design.widget.FloatingActionButton;
 import android.support.design.widget.Snackbar;
 import android.support.v7.app.ActionBar;
@@ -20,26 +19,32 @@ import android.widget.TextView;
 import com.miguelangelboti.books.R;
 import com.miguelangelboti.books.mobile.base.view.activity.BaseActivity;
 import com.miguelangelboti.books.mobile.di.HasComponent;
-import com.miguelangelboti.books.mobile.di.components.DaggerSearchComponent;
-import com.miguelangelboti.books.mobile.di.components.SearchComponent;
-import com.miguelangelboti.books.mobile.di.modules.SearchModule;
+import com.miguelangelboti.books.mobile.di.components.BookDetailComponent;
+import com.miguelangelboti.books.mobile.di.components.DaggerBookDetailComponent;
+import com.miguelangelboti.books.mobile.di.modules.BookDetailModule;
 import com.miguelangelboti.books.mobile.main.model.BookViewModel;
-import com.miguelangelboti.books.mobile.main.presenter.SearchPresenter;
+import com.miguelangelboti.books.mobile.main.presenter.BookDetailPresenter;
+import com.miguelangelboti.books.mobile.main.view.BookDetailView;
 import com.squareup.picasso.Picasso;
 
 import java.util.List;
 
+import javax.annotation.Nonnull;
 import javax.inject.Inject;
 
 import butterknife.Bind;
 import butterknife.ButterKnife;
 import butterknife.OnClick;
 
-public class BookDetailActivity extends BaseActivity implements HasComponent<SearchComponent> {
+public class BookDetailActivity extends BaseActivity implements HasComponent<BookDetailComponent>, BookDetailView {
 
-    private static final String KEY_BOOK = "KEY_BOOK";
+    private static final String KEY_BOOK_ID = "KEY_BOOK_ID";
 
-    private SearchComponent searchComponent;
+    // Workaround to get the book title, due to this bug:
+    // https://code.google.com/p/android/issues/detail?id=77763
+    private static final String KEY_BOOK_TITLE = "KEY_BOOK_TITLE";
+
+    private BookDetailComponent bookDetailComponent;
 
     @Bind(R.id.toolbar)
     Toolbar toolbar;
@@ -60,11 +65,19 @@ public class BookDetailActivity extends BaseActivity implements HasComponent<Sea
     FloatingActionButton fab;
 
     @Inject
-    SearchPresenter searchPresenter;
+    BookDetailPresenter bookDetailPresenter;
 
-    public static Intent getCallingIntent(Context context, BookViewModel book) {
+    /**
+     * Get the {@link Intent} to launch this Activity.
+     * @param context The context.
+     * @param bookId The book ID.
+     * @param title The text to set as window title.
+     * @return The description of the activity to start.
+     */
+    public static Intent getCallingIntent(Context context, String bookId, String title) {
         Intent intent = new Intent(context, BookDetailActivity.class);
-        intent.putExtra(KEY_BOOK, book);
+        intent.putExtra(KEY_BOOK_ID, bookId);
+        intent.putExtra(KEY_BOOK_TITLE, title);
         return intent;
     }
 
@@ -76,48 +89,9 @@ public class BookDetailActivity extends BaseActivity implements HasComponent<Sea
         setContentView(R.layout.activity_book_detail);
         ButterKnife.bind(this);
 
-        setSupportActionBar(toolbar);
-        ActionBar actionBar = getSupportActionBar();
-        if (actionBar != null) {
-            actionBar.setDisplayHomeAsUpEnabled(true);
-        }
-
         setupWindowAnimations();
-        bindData();
-    }
-
-    private void initializeInjector() {
-
-        searchComponent = DaggerSearchComponent.builder()
-                .applicationComponent(getApplicationComponent())
-                .activityModule(getActivityModule())
-                .searchModule(new SearchModule())
-                .build();
-        searchComponent.inject(this);
-    }
-
-    @Override
-    public SearchComponent getComponent() {
-        return searchComponent;
-    }
-
-    private void bindData() {
-
-        Parcelable parcelable = getIntent().getParcelableExtra(KEY_BOOK);
-        if (parcelable instanceof BookViewModel) {
-
-            BookViewModel book = (BookViewModel) parcelable;
-            String title = book.getTitle();
-            List<String> authors = book.getAuthors();
-            String firstAuthor = ((authors != null) && (authors.size() > 0)) ? authors.get(0) : null;
-            String description = book.getDescription();
-
-            setTitle(title);
-            textView01.setText(title);
-            textView02.setText(firstAuthor);
-            textView03.setText(description);
-            Picasso.with(this).load(book.getImageUrl()).into(imageView);
-        }
+        setupToolbar();
+        setupPresenter();
     }
 
     private void setupWindowAnimations() {
@@ -132,6 +106,39 @@ public class BookDetailActivity extends BaseActivity implements HasComponent<Sea
         }
     }
 
+    private void setupToolbar() {
+
+        setSupportActionBar(toolbar);
+        ActionBar actionBar = getSupportActionBar();
+        if (actionBar != null) {
+            actionBar.setDisplayHomeAsUpEnabled(true);
+        }
+
+        Intent intent = getIntent();
+        String title = (intent != null) ? intent.getStringExtra(KEY_BOOK_TITLE) : null;
+        if (title != null) {
+            setTitle(title);
+        }
+    }
+
+    private void initializeInjector() {
+
+        bookDetailComponent = DaggerBookDetailComponent.builder()
+                .applicationComponent(getApplicationComponent())
+                .activityModule(getActivityModule())
+                .bookDetailModule(new BookDetailModule())
+                .build();
+        bookDetailComponent.inject(this);
+    }
+
+    private void setupPresenter() {
+
+        Intent intent = getIntent();
+        String bookId = (intent != null) ? intent.getStringExtra(KEY_BOOK_ID) : null;
+        bookDetailPresenter.setView(this);
+        bookDetailPresenter.setBookId(bookId);
+    }
+
     @Override
     public boolean onOptionsItemSelected(MenuItem item) {
         switch (item.getItemId()) {
@@ -143,8 +150,43 @@ public class BookDetailActivity extends BaseActivity implements HasComponent<Sea
         }
     }
 
+    @Override
+    public BookDetailComponent getComponent() {
+        return bookDetailComponent;
+    }
+
     @OnClick(R.id.fab)
     public void onFabClick(View view) {
         Snackbar.make(view, "Replace with your own action", Snackbar.LENGTH_LONG).setAction("Action", null).show();
+    }
+
+    @Override
+    public void showProgress() {
+        // TODO: To be completed...
+    }
+
+    @Override
+    public void hideProgress() {
+        // TODO: To be completed...
+    }
+
+    @Override
+    public void loadBook(@Nonnull BookViewModel book) {
+
+        String title = book.getTitle();
+        List<String> authors = book.getAuthors();
+        String firstAuthor = ((authors != null) && (authors.size() > 0)) ? authors.get(0) : null;
+        String description = book.getDescription();
+
+        toolbar.setTitle(title);
+        textView01.setText(title);
+        textView02.setText(firstAuthor);
+        textView03.setText(description);
+        Picasso.with(this).load(book.getImageUrl()).into(imageView);
+    }
+
+    @Override
+    public void showError() {
+        // TODO: To be completed...
     }
 }

@@ -6,6 +6,7 @@ import org.mockito.Matchers;
 import org.mockito.invocation.InvocationOnMock;
 import org.mockito.stubbing.Answer;
 
+import com.miguelangelboti.books.data.repository.datasources.BooksDataSource.GetBooksCallback;
 import com.miguelangelboti.books.data.repository.network.BooksService;
 import com.miguelangelboti.books.data.repository.network.BookSearchFakeInterceptor;
 import com.miguelangelboti.books.data.repository.network.RestClient;
@@ -30,7 +31,7 @@ public class BooksNetworkDataSourceTest {
 
     private BooksNetworkDataSource dataSourceUnderTest;
 
-    private BooksDataSource.Callback mockCallback;
+    private GetBooksCallback mockCallback;
 
     @Before
     public void setup() {
@@ -52,7 +53,7 @@ public class BooksNetworkDataSourceTest {
             }
         }).when(restClient).getBooksService();
 
-        mockCallback = mock(BooksDataSource.Callback.class);
+        mockCallback = mock(GetBooksCallback.class);
         dataSourceUnderTest = new BooksNetworkDataSource(restClient);
     }
 

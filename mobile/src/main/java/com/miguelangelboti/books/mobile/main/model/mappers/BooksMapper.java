@@ -1,15 +1,13 @@
 package com.miguelangelboti.books.mobile.main.model.mappers;
 
+import com.miguelangelboti.books.domain.entities.Book;
+import com.miguelangelboti.books.mobile.main.model.BookViewModel;
+
 import java.util.ArrayList;
 import java.util.List;
 
 import javax.annotation.Nonnull;
-import javax.annotation.Nullable;
 import javax.inject.Inject;
-
-import com.miguelangelboti.books.data.model.SearchResult;
-import com.miguelangelboti.books.domain.entities.Book;
-import com.miguelangelboti.books.mobile.main.model.BookViewModel;
 
 /**
  * @author Miguel Ángel Botija.
@@ -21,31 +19,39 @@ public class BooksMapper {
     }
 
     /**
-     * Transform a {@link SearchResult} into a list of {@link Book}.
+     * Transform a list of {@link Book} into a list of {@link BookViewModel}.
      * @param books The list to be transformed.
-     * @return The list of {@link Book} if valid {@link SearchResult}, false otherwise.
+     * @return The list of {@link BookViewModel}, or {@code null} if {@code books} is not a valid list.
      */
     @Nonnull
-    public List<BookViewModel> transform(@Nullable List<Book> books) {
+    public List<BookViewModel> transform(@Nonnull List<Book> books) {
 
         List<BookViewModel> result = new ArrayList<>();
 
-        if (books != null) {
-
-            for (Book book : books) {
-
-                String title = book.getTitle();
-                List<String> authors = book.getAuthors();
-                String publishedDate = book.getPublishedDate();
-                String description = book.getDescription();
-                Integer pageCount = book.getPageCount();
-                String imageUrl = book.getImageUrl();
-                String webReaderLink = book.getWebReaderLink();
-                BookViewModel bookViewModel = new BookViewModel(title, authors, publishedDate, description, pageCount, imageUrl, webReaderLink);
-                result.add(bookViewModel);
-            }
+        for (Book book : books) {
+            BookViewModel bookViewModel = transform(book);
+            result.add(bookViewModel);
         }
 
         return result;
+    }
+
+    /**
+     * Transform a {@link Book} into a {@link BookViewModel}.
+     * @param book The book to be transformed.
+     * @return The {@link BookViewModel}, or {@code null} if {@code book} is not valid.
+     */
+    @Nonnull
+    public BookViewModel transform(@Nonnull Book book) {
+
+        String id = book.getId();
+        String title = book.getTitle();
+        List<String> authors = book.getAuthors();
+        String publishedDate = book.getPublishedDate();
+        String description = book.getDescription();
+        Integer pageCount = book.getPageCount();
+        String imageUrl = book.getImageUrl();
+        String webReaderLink = book.getWebReaderLink();
+        return new BookViewModel(id, title, authors, publishedDate, description, pageCount, imageUrl, webReaderLink);
     }
 }
