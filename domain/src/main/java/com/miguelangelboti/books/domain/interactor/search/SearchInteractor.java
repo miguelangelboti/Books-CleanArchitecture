@@ -12,10 +12,15 @@ import javax.annotation.Nonnull;
  */
 public interface SearchInteractor {
 
+    /**
+     * Executes this use case.
+     * @param callback The callback to be invoked.
+     * @param query The query to perform the search.
+     */
     void execute(Callback callback, String query);
 
     /**
-     * Callback definition to be invoked when a search process has been completed.
+     * Callback definition to be invoked when search process has been completed.
      */
     interface Callback {
 

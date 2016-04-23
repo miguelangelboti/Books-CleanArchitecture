@@ -1,7 +1,4 @@
-package com.miguelangelboti.books.domain.interactor.search;
-
-import javax.annotation.Nonnull;
-import javax.inject.Inject;
+package com.miguelangelboti.books.domain.interactor.books;
 
 import com.miguelangelboti.books.domain.entities.Book;
 import com.miguelangelboti.books.domain.executor.PostExecutionThread;
@@ -10,10 +7,13 @@ import com.miguelangelboti.books.domain.interactor.BaseInteractor;
 import com.miguelangelboti.books.domain.repository.BooksRepository;
 import com.miguelangelboti.books.domain.repository.BooksRepository.GetBookCallback;
 
+import javax.annotation.Nonnull;
+import javax.inject.Inject;
+
 /**
  * @author Miguel Ángel Botija.
  */
-public class GetBookInteractorImpl extends BaseInteractor implements GetBookInteractor {
+public class GetBookInteractorImpl extends BaseInteractor implements GetBookInteractor, GetBookCallback {
 
     private final BooksRepository repository;
 
@@ -28,7 +28,7 @@ public class GetBookInteractorImpl extends BaseInteractor implements GetBookInte
     }
 
     @Override
-    public void execute(Callback callback, String bookId) {
+    public void execute(@Nonnull Callback callback, String bookId) {
         this.callback = callback;
         this.bookId = bookId;
         execute();
@@ -37,26 +37,35 @@ public class GetBookInteractorImpl extends BaseInteractor implements GetBookInte
     @Override
     public void run() {
 
-        repository.getBook(new GetBookCallback() {
-            @Override
-            public void onSuccess(@Nonnull final Book book) {
-                post(new Runnable() {
-                    @Override
-                    public void run() {
-                        callback.onSuccess(book);
-                    }
-                });
-            }
+        if ((bookId == null) || (bookId.trim().length() == 0)) {
+            post(new Runnable() {
+                @Override
+                public void run() {
+                    callback.onError();
+                }
+            });
+        } else {
+            repository.getBook(this, bookId);
+        }
+    }
 
+    @Override
+    public void onSuccess(@Nonnull final Book book) {
+        post(new Runnable() {
             @Override
-            public void onError() {
-                post(new Runnable() {
-                    @Override
-                    public void run() {
-                        callback.onError();
-                    }
-                });
+            public void run() {
+                callback.onSuccess(book);
             }
-        }, bookId);
+        });
+    }
+
+    @Override
+    public void onError() {
+        post(new Runnable() {
+            @Override
+            public void run() {
+                callback.onError();
+            }
+        });
     }
 }

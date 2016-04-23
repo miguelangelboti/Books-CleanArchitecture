@@ -2,8 +2,8 @@ package com.miguelangelboti.books.mobile.di.modules;
 
 import com.miguelangelboti.books.domain.executor.PostExecutionThread;
 import com.miguelangelboti.books.domain.executor.ThreadExecutor;
-import com.miguelangelboti.books.domain.interactor.search.GetBookInteractor;
-import com.miguelangelboti.books.domain.interactor.search.GetBookInteractorImpl;
+import com.miguelangelboti.books.domain.interactor.books.GetBookInteractor;
+import com.miguelangelboti.books.domain.interactor.books.GetBookInteractorImpl;
 import com.miguelangelboti.books.domain.repository.BooksRepository;
 import com.miguelangelboti.books.mobile.di.PerActivity;
 import com.miguelangelboti.books.mobile.main.presenter.BookDetailPresenter;

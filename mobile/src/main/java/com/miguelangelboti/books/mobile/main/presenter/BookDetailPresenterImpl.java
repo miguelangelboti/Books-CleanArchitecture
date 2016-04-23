@@ -1,8 +1,8 @@
 package com.miguelangelboti.books.mobile.main.presenter;
 
 import com.miguelangelboti.books.domain.entities.Book;
-import com.miguelangelboti.books.domain.interactor.search.GetBookInteractor;
-import com.miguelangelboti.books.domain.interactor.search.GetBookInteractor.Callback;
+import com.miguelangelboti.books.domain.interactor.books.GetBookInteractor;
+import com.miguelangelboti.books.domain.interactor.books.GetBookInteractor.Callback;
 import com.miguelangelboti.books.mobile.main.model.BookViewModel;
 import com.miguelangelboti.books.mobile.main.model.mappers.BooksMapper;
 import com.miguelangelboti.books.mobile.main.view.BookDetailView;

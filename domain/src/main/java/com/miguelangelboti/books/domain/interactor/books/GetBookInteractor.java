@@ -1,8 +1,8 @@
-package com.miguelangelboti.books.domain.interactor.search;
-
-import javax.annotation.Nonnull;
+package com.miguelangelboti.books.domain.interactor.books;
 
 import com.miguelangelboti.books.domain.entities.Book;
+
+import javax.annotation.Nonnull;
 
 /**
  * Interface definition for a interactor to get a book.
@@ -15,10 +15,10 @@ public interface GetBookInteractor {
      * @param callback The callback to be invoked.
      * @param bookId The book ID.
      */
-    void execute(Callback callback, String bookId);
+    void execute(@Nonnull Callback callback, String bookId);
 
     /**
-     * Callback definition to be invoked when a search process has been completed.
+     * Callback definition to be invoked when process has been completed.
      */
     interface Callback {
 
