@@ -1,60 +1,46 @@
-package com.miguelangelboti.books.domain.interactor.books;
+package com.miguelangelboti.books.domain.interactor.favorites;
 
 import com.miguelangelboti.books.domain.entities.Book;
 import com.miguelangelboti.books.domain.executor.PostExecutionThread;
 import com.miguelangelboti.books.domain.executor.ThreadExecutor;
 import com.miguelangelboti.books.domain.interactor.BaseInteractor;
 import com.miguelangelboti.books.domain.repository.BooksRepository;
-import com.miguelangelboti.books.domain.repository.BooksRepository.GetBookCallback;
+import com.miguelangelboti.books.domain.repository.BooksRepository.GetFavoritesCallback;
+
+import java.util.List;
 
 import javax.annotation.Nonnull;
 import javax.inject.Inject;
 
-/**
- * @author Miguel Ángel Botija.
- */
-public class GetBookInteractorImpl extends BaseInteractor implements GetBookInteractor, GetBookCallback {
+public class GetFavoritesInteractorImpl extends BaseInteractor implements GetFavoritesInteractor, GetFavoritesCallback {
 
     private final BooksRepository repository;
 
     private Callback callback;
 
-    private String bookId;
-
     @Inject
-    public GetBookInteractorImpl(ThreadExecutor threadExecutor, PostExecutionThread postExecutionThread, BooksRepository repository) {
+    public GetFavoritesInteractorImpl(ThreadExecutor threadExecutor, PostExecutionThread postExecutionThread, BooksRepository repository) {
         super(threadExecutor, postExecutionThread);
         this.repository = repository;
     }
 
     @Override
-    public void execute(@Nonnull Callback callback, String bookId) {
+    public void execute(final Callback callback) {
         this.callback = callback;
-        this.bookId = bookId;
         execute();
     }
 
     @Override
     public void run() {
-
-        if ((bookId == null) || (bookId.length() == 0)) {
-            post(new Runnable() {
-                @Override
-                public void run() {
-                    callback.onError();
-                }
-            });
-        } else {
-            repository.getBook(this, bookId);
-        }
+        repository.getFavorites(this);
     }
 
     @Override
-    public void onSuccess(@Nonnull final Book book) {
+    public void onSuccess(@Nonnull final List<Book> books) {
         post(new Runnable() {
             @Override
             public void run() {
-                callback.onSuccess(book);
+                callback.onSuccess(books);
             }
         });
     }

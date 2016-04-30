@@ -1,14 +1,14 @@
 package com.miguelangelboti.books.domain.interactor.search;
 
-import org.junit.Before;
-import org.junit.Test;
-import org.mockito.invocation.InvocationOnMock;
-import org.mockito.stubbing.Answer;
-
 import com.miguelangelboti.books.domain.entities.Book;
 import com.miguelangelboti.books.domain.executor.ThreadExecutorMock;
 import com.miguelangelboti.books.domain.repository.BooksRepository;
 import com.miguelangelboti.books.domain.repository.BooksRepository.BookSearchCallback;
+
+import org.junit.Before;
+import org.junit.Test;
+import org.mockito.invocation.InvocationOnMock;
+import org.mockito.stubbing.Answer;
 
 import static org.mockito.Matchers.any;
 import static org.mockito.Matchers.anyListOf;

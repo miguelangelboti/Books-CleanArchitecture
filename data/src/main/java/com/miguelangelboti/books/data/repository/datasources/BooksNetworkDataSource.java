@@ -1,5 +1,7 @@
 package com.miguelangelboti.books.data.repository.datasources;
 
+import android.support.annotation.NonNull;
+
 import com.miguelangelboti.books.data.model.Item;
 import com.miguelangelboti.books.data.model.SearchResult;
 import com.miguelangelboti.books.data.model.mappers.BooksMapper;
@@ -71,5 +73,15 @@ public class BooksNetworkDataSource implements BooksDataSource {
         } catch (Exception exception) {
             callback.onError(exception);
         }
+    }
+
+    @Override
+    public void getFavorites(@NonNull GetFavoritesCallback callback) {
+        // Nothing happens here...
+    }
+
+    @Override
+    public void setFavorites(@NonNull SetFavoritesCallback callback, List<Book> books) {
+        // Nothing happens here...
     }
 }

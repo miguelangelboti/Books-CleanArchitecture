@@ -1,17 +1,17 @@
 package com.miguelangelboti.books.data.repository.datasources;
 
+import com.miguelangelboti.books.data.repository.datasources.BooksDataSource.GetBooksCallback;
+import com.miguelangelboti.books.data.repository.network.BookSearchFakeInterceptor;
+import com.miguelangelboti.books.data.repository.network.BooksService;
+import com.miguelangelboti.books.data.repository.network.RestClient;
+import com.miguelangelboti.books.domain.entities.Book;
+import com.squareup.okhttp.OkHttpClient;
+
 import org.junit.Before;
 import org.junit.Test;
 import org.mockito.Matchers;
 import org.mockito.invocation.InvocationOnMock;
 import org.mockito.stubbing.Answer;
-
-import com.miguelangelboti.books.data.repository.datasources.BooksDataSource.GetBooksCallback;
-import com.miguelangelboti.books.data.repository.network.BooksService;
-import com.miguelangelboti.books.data.repository.network.BookSearchFakeInterceptor;
-import com.miguelangelboti.books.data.repository.network.RestClient;
-import com.miguelangelboti.books.domain.entities.Book;
-import com.squareup.okhttp.OkHttpClient;
 
 import retrofit.GsonConverterFactory;
 import retrofit.Retrofit;

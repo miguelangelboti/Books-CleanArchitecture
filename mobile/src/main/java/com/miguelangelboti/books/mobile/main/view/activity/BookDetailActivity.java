@@ -5,7 +5,6 @@ import android.content.Intent;
 import android.os.Build;
 import android.os.Bundle;
 import android.support.design.widget.FloatingActionButton;
-import android.support.design.widget.Snackbar;
 import android.support.v7.app.ActionBar;
 import android.support.v7.widget.Toolbar;
 import android.transition.Transition;
@@ -17,6 +16,8 @@ import android.widget.ImageView;
 import android.widget.TextView;
 
 import com.miguelangelboti.books.R;
+import com.miguelangelboti.books.mobile.CheckableFloatingActionButton;
+import com.miguelangelboti.books.mobile.CheckableFloatingActionButton.OnCheckedChangeListener;
 import com.miguelangelboti.books.mobile.base.view.activity.BaseActivity;
 import com.miguelangelboti.books.mobile.di.HasComponent;
 import com.miguelangelboti.books.mobile.di.components.BookDetailComponent;
@@ -46,6 +47,8 @@ public class BookDetailActivity extends BaseActivity implements HasComponent<Boo
 
     private BookDetailComponent bookDetailComponent;
 
+    private String bookId;
+
     @Bind(R.id.toolbar)
     Toolbar toolbar;
 
@@ -62,7 +65,7 @@ public class BookDetailActivity extends BaseActivity implements HasComponent<Boo
     TextView textView03;
 
     @Bind(R.id.fab)
-    FloatingActionButton fab;
+    CheckableFloatingActionButton fab;
 
     @Inject
     BookDetailPresenter bookDetailPresenter;
@@ -90,8 +93,19 @@ public class BookDetailActivity extends BaseActivity implements HasComponent<Boo
         ButterKnife.bind(this);
 
         setupWindowAnimations();
-        setupToolbar();
         setupPresenter();
+        setupToolbar();
+        setupUi();
+    }
+
+    private void initializeInjector() {
+
+        bookDetailComponent = DaggerBookDetailComponent.builder()
+                .applicationComponent(getApplicationComponent())
+                .activityModule(getActivityModule())
+                .bookDetailModule(new BookDetailModule())
+                .build();
+        bookDetailComponent.inject(this);
     }
 
     private void setupWindowAnimations() {
@@ -106,6 +120,13 @@ public class BookDetailActivity extends BaseActivity implements HasComponent<Boo
         }
     }
 
+    private void setupPresenter() {
+
+        bookId = getIntent().getStringExtra(KEY_BOOK_ID);
+        bookDetailPresenter.setView(this);
+        bookDetailPresenter.setBookId(bookId);
+    }
+
     private void setupToolbar() {
 
         setSupportActionBar(toolbar);
@@ -114,29 +135,19 @@ public class BookDetailActivity extends BaseActivity implements HasComponent<Boo
             actionBar.setDisplayHomeAsUpEnabled(true);
         }
 
-        Intent intent = getIntent();
-        String title = (intent != null) ? intent.getStringExtra(KEY_BOOK_TITLE) : null;
+        String title = getIntent().getStringExtra(KEY_BOOK_TITLE);
         if (title != null) {
             setTitle(title);
         }
     }
 
-    private void initializeInjector() {
-
-        bookDetailComponent = DaggerBookDetailComponent.builder()
-                .applicationComponent(getApplicationComponent())
-                .activityModule(getActivityModule())
-                .bookDetailModule(new BookDetailModule())
-                .build();
-        bookDetailComponent.inject(this);
-    }
-
-    private void setupPresenter() {
-
-        Intent intent = getIntent();
-        String bookId = (intent != null) ? intent.getStringExtra(KEY_BOOK_ID) : null;
-        bookDetailPresenter.setView(this);
-        bookDetailPresenter.setBookId(bookId);
+    private void setupUi() {
+        fab.setOnCheckedChangeListener(new OnCheckedChangeListener() {
+            @Override
+            public void onCheckedChanged(FloatingActionButton fabView, boolean isChecked) {
+                bookDetailPresenter.onFavoriteButtonClick(bookId, isChecked);
+            }
+        });
     }
 
     @Override
@@ -157,8 +168,11 @@ public class BookDetailActivity extends BaseActivity implements HasComponent<Boo
 
     @OnClick(R.id.fab)
     public void onFabClick(View view) {
-        Snackbar.make(view, "Replace with your own action", Snackbar.LENGTH_LONG).setAction("Action", null).show();
+        boolean isChecked = fab.isChecked();
+        bookDetailPresenter.onFavoriteButtonClick(bookId, isChecked);
     }
+
+// region BookDetailView
 
     @Override
     public void showProgress() {
@@ -187,6 +201,18 @@ public class BookDetailActivity extends BaseActivity implements HasComponent<Boo
 
     @Override
     public void showError() {
-        // TODO: To be completed...
+        showSnackMessage("Error!");
     }
+
+    @Override
+    public void checkFavorite() {
+        fab.setCheckedSilently(true);
+    }
+
+    @Override
+    public void uncheckFavorite() {
+        fab.setCheckedSilently(false);
+    }
+
+// endregion
 }

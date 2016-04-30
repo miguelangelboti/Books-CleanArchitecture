@@ -13,7 +13,7 @@ import javax.inject.Inject;
 
 public class SearchPresenterImpl implements SearchPresenter, SearchInteractor.Callback {
 
-    private SearchView searchView;
+    private SearchView view;
 
     private SearchInteractor searchInteractor;
 
@@ -29,7 +29,7 @@ public class SearchPresenterImpl implements SearchPresenter, SearchInteractor.Ca
 
     @Override
     public void setView(@Nonnull SearchView view) {
-        this.searchView = view;
+        this.view = view;
     }
 
 // region Presenter
@@ -37,9 +37,9 @@ public class SearchPresenterImpl implements SearchPresenter, SearchInteractor.Ca
     @Override
     public void resume() {
         if (booksMapped != null) {
-            searchView.loadBooks(booksMapped);
+            view.loadBooks(booksMapped);
         } else {
-            searchView.showProgress();
+            view.showProgress();
             searchInteractor.execute(this, "Android");
         }
     }
@@ -54,7 +54,7 @@ public class SearchPresenterImpl implements SearchPresenter, SearchInteractor.Ca
 
     @Override
     public void doSearch(String query) {
-        searchView.showProgress();
+        view.showProgress();
         searchInteractor.execute(this, query);
     }
 
@@ -64,14 +64,14 @@ public class SearchPresenterImpl implements SearchPresenter, SearchInteractor.Ca
     @Override
     public void onSuccess(@Nonnull List<Book> books) {
         booksMapped = booksMapper.transform(books);
-        searchView.hideProgress();
-        searchView.loadBooks(booksMapped);
+        view.hideProgress();
+        view.loadBooks(booksMapped);
     }
 
     @Override
     public void onError() {
-        searchView.hideProgress();
-        searchView.showError();
+        view.hideProgress();
+        view.showError();
     }
 
 // endregion

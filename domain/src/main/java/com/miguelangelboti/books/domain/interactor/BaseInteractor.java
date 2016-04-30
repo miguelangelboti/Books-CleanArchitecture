@@ -4,8 +4,8 @@ import com.miguelangelboti.books.domain.executor.PostExecutionThread;
 import com.miguelangelboti.books.domain.executor.ThreadExecutor;
 
 /**
- * Base interactor that executes a task in background thread and post the result to a callback that
- * will be executed in the UI thread.
+ * Base interactor that executes a task in background thread and post the result to a callback that will be executed in
+ * the UI thread.
  */
 public abstract class BaseInteractor implements Interactor {
 

@@ -8,14 +8,14 @@ import android.support.v7.widget.Toolbar;
 import com.miguelangelboti.books.R;
 import com.miguelangelboti.books.mobile.base.view.activity.BaseActivity;
 import com.miguelangelboti.books.mobile.di.HasComponent;
-import com.miguelangelboti.books.mobile.di.components.DaggerSearchComponent;
-import com.miguelangelboti.books.mobile.di.components.SearchComponent;
+import com.miguelangelboti.books.mobile.di.components.BooksComponent;
+import com.miguelangelboti.books.mobile.di.components.DaggerBooksComponent;
 import com.miguelangelboti.books.mobile.di.modules.SearchModule;
 import com.miguelangelboti.books.mobile.main.view.activity.adapters.MainPagerAdapter;
 
-public class MainActivity extends BaseActivity implements HasComponent<SearchComponent> {
+public class MainActivity extends BaseActivity implements HasComponent<BooksComponent> {
 
-    private SearchComponent searchComponent;
+    private BooksComponent booksComponent;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -28,14 +28,18 @@ public class MainActivity extends BaseActivity implements HasComponent<SearchCom
         setSupportActionBar(toolbar);
 
         ViewPager viewPager = (ViewPager) findViewById(R.id.viewPager);
-        viewPager.setAdapter(new MainPagerAdapter(getSupportFragmentManager(), this));
+        if (viewPager != null) {
+            viewPager.setAdapter(new MainPagerAdapter(getSupportFragmentManager(), this));
+        }
 
         TabLayout tabLayout = (TabLayout) findViewById(R.id.tabLayout);
-        tabLayout.setupWithViewPager(viewPager);
+        if (tabLayout != null) {
+            tabLayout.setupWithViewPager(viewPager);
+        }
     }
 
     private void initializeInjector() {
-        searchComponent = DaggerSearchComponent.builder()
+        booksComponent = DaggerBooksComponent.builder()
                 .applicationComponent(getApplicationComponent())
                 .activityModule(getActivityModule())
                 .searchModule(new SearchModule())
@@ -43,7 +47,7 @@ public class MainActivity extends BaseActivity implements HasComponent<SearchCom
     }
 
     @Override
-    public SearchComponent getComponent() {
-        return searchComponent;
+    public BooksComponent getComponent() {
+        return booksComponent;
     }
 }

@@ -71,6 +71,10 @@ public class SearchRecyclerViewAdapter extends RecyclerView.Adapter<SearchRecycl
         return (books != null) ? books.size() : 0;
     }
 
+    /**
+     * Sets the list of books.
+     * @param books The books.
+     */
     public void setBooks(List<BookViewModel> books) {
         this.books = books;
         notifyDataSetChanged();

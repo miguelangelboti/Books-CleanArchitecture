@@ -1,19 +1,18 @@
-package com.miguelangelboti.books.domain.interactor.books;
+package com.miguelangelboti.books.domain.interactor.favorites;
 
 import com.miguelangelboti.books.domain.entities.Book;
 import com.miguelangelboti.books.domain.executor.PostExecutionThread;
 import com.miguelangelboti.books.domain.executor.ThreadExecutor;
 import com.miguelangelboti.books.domain.interactor.BaseInteractor;
 import com.miguelangelboti.books.domain.repository.BooksRepository;
-import com.miguelangelboti.books.domain.repository.BooksRepository.GetBookCallback;
+import com.miguelangelboti.books.domain.repository.BooksRepository.GetFavoritesCallback;
+
+import java.util.List;
 
 import javax.annotation.Nonnull;
 import javax.inject.Inject;
 
-/**
- * @author Miguel Ángel Botija.
- */
-public class GetBookInteractorImpl extends BaseInteractor implements GetBookInteractor, GetBookCallback {
+public class IsFavoritesInteractorImpl extends BaseInteractor implements IsFavoritesInteractor, GetFavoritesCallback {
 
     private final BooksRepository repository;
 
@@ -22,7 +21,7 @@ public class GetBookInteractorImpl extends BaseInteractor implements GetBookInte
     private String bookId;
 
     @Inject
-    public GetBookInteractorImpl(ThreadExecutor threadExecutor, PostExecutionThread postExecutionThread, BooksRepository repository) {
+    public IsFavoritesInteractorImpl(ThreadExecutor threadExecutor, PostExecutionThread postExecutionThread, BooksRepository repository) {
         super(threadExecutor, postExecutionThread);
         this.repository = repository;
     }
@@ -45,16 +44,19 @@ public class GetBookInteractorImpl extends BaseInteractor implements GetBookInte
                 }
             });
         } else {
-            repository.getBook(this, bookId);
+            repository.getFavorites(this);
         }
     }
 
     @Override
-    public void onSuccess(@Nonnull final Book book) {
+    public void onSuccess(@Nonnull final List<Book> books) {
+
         post(new Runnable() {
             @Override
             public void run() {
-                callback.onSuccess(book);
+                Book book = new Book(bookId);
+                boolean isFavorite = books.contains(book);
+                callback.onSuccess(isFavorite);
             }
         });
     }

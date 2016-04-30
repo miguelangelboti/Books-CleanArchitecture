@@ -13,7 +13,7 @@ import android.widget.ProgressBar;
 
 import com.miguelangelboti.books.R;
 import com.miguelangelboti.books.mobile.base.view.fragment.BaseFragment;
-import com.miguelangelboti.books.mobile.di.components.SearchComponent;
+import com.miguelangelboti.books.mobile.di.components.BooksComponent;
 import com.miguelangelboti.books.mobile.main.model.BookViewModel;
 import com.miguelangelboti.books.mobile.main.presenter.SearchPresenter;
 import com.miguelangelboti.books.mobile.main.view.fragment.adapters.LinearSpacingItemDecoration;
@@ -35,7 +35,7 @@ public class SearchFragment extends BaseFragment implements com.miguelangelboti.
     ProgressBar progressBar;
 
     @Inject
-    SearchPresenter searchPresenter;
+    SearchPresenter presenter;
 
     private SearchRecyclerViewAdapter recyclerViewAdapter;
 
@@ -64,8 +64,8 @@ public class SearchFragment extends BaseFragment implements com.miguelangelboti.
     }
 
     private void initializeInjector() {
-        getComponent(SearchComponent.class).inject(this);
-        searchPresenter.setView(this);
+        getComponent(BooksComponent.class).inject(this);
+        presenter.setView(this);
     }
 
     @Override
@@ -121,10 +121,10 @@ public class SearchFragment extends BaseFragment implements com.miguelangelboti.
     @Override
     public void onResume() {
         super.onResume();
-        searchPresenter.resume();
+        presenter.resume();
     }
 
-    // region BaseFragment
+// region BaseFragment
 
     @Override
     public void showProgress() {
@@ -136,8 +136,8 @@ public class SearchFragment extends BaseFragment implements com.miguelangelboti.
         progressBar.setVisibility(View.INVISIBLE);
     }
 
-    // endregion
-    // region LoginView
+// endregion
+// region SearchView
 
     @Override
     public void loadBooks(@Nonnull List<BookViewModel> books) {
@@ -149,12 +149,12 @@ public class SearchFragment extends BaseFragment implements com.miguelangelboti.
         showSnackMessage("Error!");
     }
 
-    // endregion
-    // region Events
+// endregion
+// region Events
 
     private void onSearchRequested(String query) {
-        searchPresenter.doSearch(query);
+        presenter.doSearch(query);
     }
 
-    // endregion
+// endregion
 }

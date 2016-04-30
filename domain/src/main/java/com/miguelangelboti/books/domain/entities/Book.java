@@ -71,16 +71,17 @@ public class Book {
     }
 
     @Override
-    public boolean equals(Object o) {
+    public boolean equals(Object object) {
 
-        if (this == o) {
+        if (this == object) {
             return true;
         }
-        if (!(o instanceof Book)) {
+
+        if (!(object instanceof Book)) {
             return false;
         }
 
-        Book book = (Book) o;
+        Book book = (Book) object;
         return (id != null) ? id.equals(book.id) : (book.id == null);
     }
 

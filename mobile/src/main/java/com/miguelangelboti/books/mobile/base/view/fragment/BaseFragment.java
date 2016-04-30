@@ -17,7 +17,7 @@ import butterknife.ButterKnife;
 /**
  * A simple {@link Fragment} subclass.
  */
-public abstract class BaseFragment extends Fragment implements com.miguelangelboti.books.mobile.base.view.View {
+public abstract class BaseFragment extends Fragment {
 
     @Inject
     protected Navigator navigator;
@@ -41,16 +41,6 @@ public abstract class BaseFragment extends Fragment implements com.miguelangelbo
     @SuppressWarnings("unchecked")
     protected <C> C getComponent(Class<C> componentType) {
         return componentType.cast(((HasComponent<C>) getActivity()).getComponent());
-    }
-
-    @Override
-    public void showProgress() {
-        showSnackMessage("showProgress");
-    }
-
-    @Override
-    public void hideProgress() {
-        showSnackMessage("hideProgress");
     }
 
     /**

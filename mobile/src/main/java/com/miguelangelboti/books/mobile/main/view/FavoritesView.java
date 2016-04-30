@@ -3,19 +3,17 @@ package com.miguelangelboti.books.mobile.main.view;
 import com.miguelangelboti.books.mobile.base.view.View;
 import com.miguelangelboti.books.mobile.main.model.BookViewModel;
 
+import java.util.List;
+
 import javax.annotation.Nonnull;
 
 /**
- * Interface definition for a book detail view.
+ * Interface definition for a favorites view.
  * @author Miguel Ángel Botija.
  */
-public interface BookDetailView extends View {
+public interface FavoritesView extends View {
 
-    void loadBook(@Nonnull BookViewModel book);
-
-    void checkFavorite();
-
-    void uncheckFavorite();
+    void loadFavorites(@Nonnull List<BookViewModel> books);
 
     void showError();
 }

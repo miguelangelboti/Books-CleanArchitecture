@@ -7,20 +7,20 @@ package com.miguelangelboti.books.mobile.base.presenter;
 public interface Presenter {
 
     /**
-     * Method that control the lifecycle of the view. It should be called in the view's (Activity or
-     * Fragment) onResume() method.
+     * Method that control the lifecycle of the view. It should be called in the view's (Activity or Fragment)
+     * onResume() method.
      */
     void resume();
 
     /**
-     * Method that control the lifecycle of the view. It should be called in the view's (Activity or
-     * Fragment) onPause() method.
+     * Method that control the lifecycle of the view. It should be called in the view's (Activity or Fragment) onPause()
+     * method.
      */
     void pause();
 
     /**
-     * Method that control the lifecycle of the view. It should be called in the view's (Activity or
-     * Fragment) onDestroy() method.
+     * Method that control the lifecycle of the view. It should be called in the view's (Activity or Fragment)
+     * onDestroy() method.
      */
     void destroy();
 }

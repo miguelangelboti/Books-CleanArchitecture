@@ -11,6 +11,8 @@ import javax.annotation.Nonnull;
  */
 public interface BooksDataSource {
 
+    void getBooks(@Nonnull GetBooksCallback callback, String query);
+
     interface GetBooksCallback {
 
         void onSuccess(@Nonnull List<Book> books);
@@ -18,7 +20,7 @@ public interface BooksDataSource {
         void onError(@Nonnull Exception exception);
     }
 
-    void getBooks(@Nonnull GetBooksCallback callback, String query);
+    void getBook(@Nonnull GetBookCallback callback, String bookId);
 
     interface GetBookCallback {
 
@@ -27,5 +29,21 @@ public interface BooksDataSource {
         void onError(@Nonnull Exception exception);
     }
 
-    void getBook(@Nonnull GetBookCallback callback, String bookId);
+    void getFavorites(@Nonnull GetFavoritesCallback callback);
+
+    interface GetFavoritesCallback {
+
+        void onSuccess(@Nonnull List<Book> books);
+
+        void onError(@Nonnull Exception exception);
+    }
+
+    void setFavorites(@Nonnull SetFavoritesCallback callback, List<Book> books);
+
+    interface SetFavoritesCallback {
+
+        void onSuccess();
+
+        void onError(@Nonnull Exception exception);
+    }
 }

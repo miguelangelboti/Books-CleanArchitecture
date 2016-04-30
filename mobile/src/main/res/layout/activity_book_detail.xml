@@ -37,12 +37,12 @@
 
     <include layout="@layout/content_book_detail" />
 
-    <android.support.design.widget.FloatingActionButton
+    <com.miguelangelboti.books.mobile.CheckableFloatingActionButton
         android:id="@+id/fab"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_margin="@dimen/fab_margin"
-        android:src="@drawable/ic_star"
+        android:src="@drawable/selector_favorite"
         app:layout_anchor="@id/appBar"
         app:layout_anchorGravity="bottom|end"
         />

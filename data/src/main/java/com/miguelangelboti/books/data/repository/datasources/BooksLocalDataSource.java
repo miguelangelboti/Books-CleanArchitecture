@@ -1,5 +1,9 @@
 package com.miguelangelboti.books.data.repository.datasources;
 
+import android.content.Context;
+import android.support.annotation.NonNull;
+
+import com.miguelangelboti.books.data.utils.Persistence;
 import com.miguelangelboti.books.domain.entities.Book;
 
 import java.util.List;
@@ -11,15 +15,18 @@ import javax.inject.Singleton;
 @Singleton
 public class BooksLocalDataSource implements BooksDataSource {
 
+    private final Context context;
+
     private List<Book> books;
 
     @Inject
-    public BooksLocalDataSource() {
+    public BooksLocalDataSource(Context context) {
+        this.context = context;
     }
 
     @Override
     public void getBooks(@Nonnull GetBooksCallback callback, String query) {
-        // TODO: Nothing happens here...
+        // Nothing happens here...
     }
 
     /**
@@ -49,6 +56,30 @@ public class BooksLocalDataSource implements BooksDataSource {
             callback.onSuccess(result);
         } else {
             // TODO: Define the exception.
+            callback.onError(new Exception());
+        }
+    }
+
+    @Override
+    public void getFavorites(@NonNull GetFavoritesCallback callback) {
+
+        List<Book> favorites = Persistence.loadFavorites(context);
+        if (favorites != null) {
+            callback.onSuccess(favorites);
+        } else {
+            // TODO: Define this exception.
+            callback.onError(new Exception());
+        }
+    }
+
+    @Override
+    public void setFavorites(@NonNull SetFavoritesCallback callback, List<Book> books) {
+
+        boolean success = Persistence.store(context, books);
+        if (success) {
+            callback.onSuccess();
+        } else {
+            // TODO: Define this exception.
             callback.onError(new Exception());
         }
     }
