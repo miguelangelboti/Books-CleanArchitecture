@@ -8,6 +8,7 @@ import com.miguelangelboti.books.domain.repository.BooksRepository;
 import com.miguelangelboti.books.domain.repository.BooksRepository.GetBookCallback;
 import com.miguelangelboti.books.domain.repository.BooksRepository.GetFavoritesCallback;
 import com.miguelangelboti.books.domain.repository.BooksRepository.SetFavoritesCallback;
+import com.miguelangelboti.books.domain.utils.TextUtils;
 
 import java.util.List;
 
@@ -38,22 +39,33 @@ public class AddFavoriteInteractorImpl extends BaseInteractor implements AddFavo
     @Override
     public void run() {
 
-        repository.getBook(new GetBookCallback() {
-            @Override
-            public void onSuccess(@Nonnull final Book book) {
-                addFavorite(book);
-            }
+        if (TextUtils.isNotEmpty(bookId)) {
 
-            @Override
-            public void onError() {
-                post(new Runnable() {
-                    @Override
-                    public void run() {
-                        callback.onError();
-                    }
-                });
-            }
-        }, bookId);
+            repository.getBook(new GetBookCallback() {
+                @Override
+                public void onSuccess(@Nonnull final Book book) {
+                    addFavorite(book);
+                }
+
+                @Override
+                public void onError() {
+                    post(new Runnable() {
+                        @Override
+                        public void run() {
+                            callback.onError();
+                        }
+                    });
+                }
+            }, bookId);
+
+        } else {
+            post(new Runnable() {
+                @Override
+                public void run() {
+                    callback.onError();
+                }
+            });
+        }
     }
 
     private void addFavorite(@Nonnull final Book book) {
