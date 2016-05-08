@@ -12,7 +12,7 @@ import java.util.List;
 import javax.annotation.Nonnull;
 import javax.inject.Inject;
 
-public class IsFavoritesInteractorImpl extends BaseInteractor implements IsFavoritesInteractor, GetFavoritesCallback {
+public class IsFavoriteInteractorImpl extends BaseInteractor implements IsFavoriteInteractor, GetFavoritesCallback {
 
     private final BooksRepository repository;
 
@@ -21,7 +21,7 @@ public class IsFavoritesInteractorImpl extends BaseInteractor implements IsFavor
     private String bookId;
 
     @Inject
-    public IsFavoritesInteractorImpl(ThreadExecutor threadExecutor, PostExecutionThread postExecutionThread, BooksRepository repository) {
+    public IsFavoriteInteractorImpl(ThreadExecutor threadExecutor, PostExecutionThread postExecutionThread, BooksRepository repository) {
         super(threadExecutor, postExecutionThread);
         this.repository = repository;
     }

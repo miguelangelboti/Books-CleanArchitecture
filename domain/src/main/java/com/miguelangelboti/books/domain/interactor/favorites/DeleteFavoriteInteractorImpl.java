@@ -13,7 +13,7 @@ import java.util.List;
 import javax.annotation.Nonnull;
 import javax.inject.Inject;
 
-public class DeleteFavoritesInteractorImpl extends BaseInteractor implements DeleteFavoritesInteractor, SetFavoritesCallback {
+public class DeleteFavoriteInteractorImpl extends BaseInteractor implements DeleteFavoriteInteractor, SetFavoritesCallback {
 
     private final BooksRepository repository;
 
@@ -22,7 +22,7 @@ public class DeleteFavoritesInteractorImpl extends BaseInteractor implements Del
     private String bookId;
 
     @Inject
-    public DeleteFavoritesInteractorImpl(ThreadExecutor threadExecutor, PostExecutionThread postExecutionThread, BooksRepository repository) {
+    public DeleteFavoriteInteractorImpl(ThreadExecutor threadExecutor, PostExecutionThread postExecutionThread, BooksRepository repository) {
         super(threadExecutor, postExecutionThread);
         this.repository = repository;
     }
@@ -42,27 +42,7 @@ public class DeleteFavoritesInteractorImpl extends BaseInteractor implements Del
             public void onSuccess(@Nonnull List<Book> books) {
                 Book book = new Book(bookId);
                 books.remove(book);
-                repository.setFavorites(new SetFavoritesCallback() {
-                    @Override
-                    public void onSuccess() {
-                        post(new Runnable() {
-                            @Override
-                            public void run() {
-                                callback.onSuccess();
-                            }
-                        });
-                    }
-
-                    @Override
-                    public void onError() {
-                        post(new Runnable() {
-                            @Override
-                            public void run() {
-                                callback.onError();
-                            }
-                        });
-                    }
-                }, books);
+                setFavorites(books);
             }
 
             @Override
@@ -75,6 +55,31 @@ public class DeleteFavoritesInteractorImpl extends BaseInteractor implements Del
                 });
             }
         });
+    }
+
+    private void setFavorites(@Nonnull List<Book> books) {
+
+        repository.setFavorites(new SetFavoritesCallback() {
+            @Override
+            public void onSuccess() {
+                post(new Runnable() {
+                    @Override
+                    public void run() {
+                        callback.onSuccess();
+                    }
+                });
+            }
+
+            @Override
+            public void onError() {
+                post(new Runnable() {
+                    @Override
+                    public void run() {
+                        callback.onError();
+                    }
+                });
+            }
+        }, books);
     }
 
     @Override

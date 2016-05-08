@@ -3,9 +3,9 @@ package com.miguelangelboti.books.mobile.main.presenter;
 import com.miguelangelboti.books.domain.entities.Book;
 import com.miguelangelboti.books.domain.interactor.books.GetBookInteractor;
 import com.miguelangelboti.books.domain.interactor.books.GetBookInteractor.Callback;
-import com.miguelangelboti.books.domain.interactor.favorites.AddFavoritesInteractor;
-import com.miguelangelboti.books.domain.interactor.favorites.DeleteFavoritesInteractor;
-import com.miguelangelboti.books.domain.interactor.favorites.IsFavoritesInteractor;
+import com.miguelangelboti.books.domain.interactor.favorites.AddFavoriteInteractor;
+import com.miguelangelboti.books.domain.interactor.favorites.DeleteFavoriteInteractor;
+import com.miguelangelboti.books.domain.interactor.favorites.IsFavoriteInteractor;
 import com.miguelangelboti.books.mobile.main.model.BookViewModel;
 import com.miguelangelboti.books.mobile.main.model.mappers.BooksMapper;
 import com.miguelangelboti.books.mobile.main.view.BookDetailView;
@@ -22,21 +22,21 @@ public class BookDetailPresenterImpl implements BookDetailPresenter {
 
     private final GetBookInteractor getBookInteractor;
 
-    private IsFavoritesInteractor isFavoritesInteractor;
+    private IsFavoriteInteractor isFavoriteInteractor;
 
-    private AddFavoritesInteractor addFavoritesInteractor;
+    private AddFavoriteInteractor addFavoriteInteractor;
 
-    private DeleteFavoritesInteractor deleteFavoritesInteractor;
+    private DeleteFavoriteInteractor deleteFavoriteInteractor;
 
     private BookDetailView view;
 
     @Inject
-    public BookDetailPresenterImpl(@Nonnull BooksMapper booksMapper, @Nonnull GetBookInteractor getBookInteractor, @Nonnull IsFavoritesInteractor isFavoritesInteractor, @Nonnull AddFavoritesInteractor addFavoritesInteractor, @Nonnull DeleteFavoritesInteractor deleteFavoritesInteractor) {
+    public BookDetailPresenterImpl(@Nonnull BooksMapper booksMapper, @Nonnull GetBookInteractor getBookInteractor, @Nonnull IsFavoriteInteractor isFavoriteInteractor, @Nonnull AddFavoriteInteractor addFavoriteInteractor, @Nonnull DeleteFavoriteInteractor deleteFavoriteInteractor) {
         this.booksMapper = booksMapper;
         this.getBookInteractor = getBookInteractor;
-        this.isFavoritesInteractor = isFavoritesInteractor;
-        this.addFavoritesInteractor = addFavoritesInteractor;
-        this.deleteFavoritesInteractor = deleteFavoritesInteractor;
+        this.isFavoriteInteractor = isFavoriteInteractor;
+        this.addFavoriteInteractor = addFavoriteInteractor;
+        this.deleteFavoriteInteractor = deleteFavoriteInteractor;
     }
 
     @Override
@@ -76,7 +76,7 @@ public class BookDetailPresenterImpl implements BookDetailPresenter {
 
     private void checkFavorite(String bookId) {
 
-        isFavoritesInteractor.execute(new IsFavoritesInteractor.Callback() {
+        isFavoriteInteractor.execute(new IsFavoriteInteractor.Callback() {
             @Override
             public void onSuccess(boolean isFavorite) {
 
@@ -105,7 +105,7 @@ public class BookDetailPresenterImpl implements BookDetailPresenter {
 
     private void addFavorite(@Nonnull String bookId) {
 
-        addFavoritesInteractor.execute(new AddFavoritesInteractor.Callback() {
+        addFavoriteInteractor.execute(new AddFavoriteInteractor.Callback() {
             @Override
             public void onSuccess() {
                 view.checkFavorite();
@@ -121,7 +121,7 @@ public class BookDetailPresenterImpl implements BookDetailPresenter {
 
     private void deleteFavorite(@Nonnull String bookId) {
 
-        deleteFavoritesInteractor.execute(new DeleteFavoritesInteractor.Callback() {
+        deleteFavoriteInteractor.execute(new DeleteFavoriteInteractor.Callback() {
             @Override
             public void onSuccess() {
                 view.uncheckFavorite();

@@ -7,7 +7,7 @@ import javax.annotation.Nullable;
  * Interface definition for a interactor to check if a book is a favorite.
  * @author Miguel Ángel Botija.
  */
-public interface IsFavoritesInteractor {
+public interface IsFavoriteInteractor {
 
     void execute(@Nonnull Callback callback, @Nullable String bookId);
 

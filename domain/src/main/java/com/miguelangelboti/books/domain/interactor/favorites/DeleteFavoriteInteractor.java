@@ -6,7 +6,7 @@ import javax.annotation.Nonnull;
  * Interface definition for a interactor to delete a book as favorite.
  * @author Miguel Ángel Botija.
  */
-public interface DeleteFavoritesInteractor {
+public interface DeleteFavoriteInteractor {
 
     /**
      * Executes this use case.

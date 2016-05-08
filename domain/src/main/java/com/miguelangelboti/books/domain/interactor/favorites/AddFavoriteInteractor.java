@@ -6,7 +6,7 @@ import javax.annotation.Nonnull;
  * Interface definition for a interactor to add a book as favorite.
  * @author Miguel Ángel Botija.
  */
-public interface AddFavoritesInteractor {
+public interface AddFavoriteInteractor {
 
     /**
      * Executes this use case.

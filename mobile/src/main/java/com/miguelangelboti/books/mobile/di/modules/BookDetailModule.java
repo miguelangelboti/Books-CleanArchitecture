@@ -4,12 +4,12 @@ import com.miguelangelboti.books.domain.executor.PostExecutionThread;
 import com.miguelangelboti.books.domain.executor.ThreadExecutor;
 import com.miguelangelboti.books.domain.interactor.books.GetBookInteractor;
 import com.miguelangelboti.books.domain.interactor.books.GetBookInteractorImpl;
-import com.miguelangelboti.books.domain.interactor.favorites.AddFavoritesInteractor;
-import com.miguelangelboti.books.domain.interactor.favorites.AddFavoritesInteractorImpl;
-import com.miguelangelboti.books.domain.interactor.favorites.DeleteFavoritesInteractor;
-import com.miguelangelboti.books.domain.interactor.favorites.DeleteFavoritesInteractorImpl;
-import com.miguelangelboti.books.domain.interactor.favorites.IsFavoritesInteractor;
-import com.miguelangelboti.books.domain.interactor.favorites.IsFavoritesInteractorImpl;
+import com.miguelangelboti.books.domain.interactor.favorites.AddFavoriteInteractor;
+import com.miguelangelboti.books.domain.interactor.favorites.AddFavoriteInteractorImpl;
+import com.miguelangelboti.books.domain.interactor.favorites.DeleteFavoriteInteractor;
+import com.miguelangelboti.books.domain.interactor.favorites.DeleteFavoriteInteractorImpl;
+import com.miguelangelboti.books.domain.interactor.favorites.IsFavoriteInteractor;
+import com.miguelangelboti.books.domain.interactor.favorites.IsFavoriteInteractorImpl;
 import com.miguelangelboti.books.domain.repository.BooksRepository;
 import com.miguelangelboti.books.mobile.di.PerActivity;
 import com.miguelangelboti.books.mobile.main.presenter.BookDetailPresenter;
@@ -32,20 +32,20 @@ public class BookDetailModule {
 
     @Provides
     @PerActivity
-    IsFavoritesInteractor provideIsFavoritesInteractor(ThreadExecutor threadExecutor, PostExecutionThread postExecutionThread, BooksRepository booksRepository) {
-        return new IsFavoritesInteractorImpl(threadExecutor, postExecutionThread, booksRepository);
+    IsFavoriteInteractor provideIsFavoriteInteractor(ThreadExecutor threadExecutor, PostExecutionThread postExecutionThread, BooksRepository booksRepository) {
+        return new IsFavoriteInteractorImpl(threadExecutor, postExecutionThread, booksRepository);
     }
 
     @Provides
     @PerActivity
-    AddFavoritesInteractor provideAddFavoritesInteractor(AddFavoritesInteractorImpl addFavoritesInteractor) {
-        return addFavoritesInteractor;
+    AddFavoriteInteractor provideAddFavoriteInteractor(AddFavoriteInteractorImpl addFavoriteInteractor) {
+        return addFavoriteInteractor;
     }
 
     @Provides
     @PerActivity
-    DeleteFavoritesInteractor provideDeleteFavoritesInteractor(DeleteFavoritesInteractorImpl deleteFavoritesInteractor) {
-        return deleteFavoritesInteractor;
+    DeleteFavoriteInteractor provideDeleteFavoriteInteractor(DeleteFavoriteInteractorImpl deleteFavoriteInteractor) {
+        return deleteFavoriteInteractor;
     }
 
     @Provides
