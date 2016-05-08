@@ -17,7 +17,7 @@ public interface SearchInteractor {
      * @param callback The callback to be invoked.
      * @param query The query to perform the search.
      */
-    void execute(Callback callback, String query);
+    void execute(@Nonnull Callback callback, String query);
 
     /**
      * Callback definition to be invoked when search process has been completed.

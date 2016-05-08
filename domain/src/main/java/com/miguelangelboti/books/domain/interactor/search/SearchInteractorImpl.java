@@ -6,6 +6,7 @@ import com.miguelangelboti.books.domain.executor.ThreadExecutor;
 import com.miguelangelboti.books.domain.interactor.BaseInteractor;
 import com.miguelangelboti.books.domain.repository.BooksRepository;
 import com.miguelangelboti.books.domain.repository.BooksRepository.BookSearchCallback;
+import com.miguelangelboti.books.domain.utils.TextUtils;
 
 import java.util.List;
 
@@ -27,7 +28,7 @@ public class SearchInteractorImpl extends BaseInteractor implements SearchIntera
     }
 
     @Override
-    public void execute(final Callback callback, final String query) {
+    public void execute(@Nonnull final Callback callback, final String query) {
 
         this.callback = callback;
         this.query = query;
@@ -37,15 +38,15 @@ public class SearchInteractorImpl extends BaseInteractor implements SearchIntera
     @Override
     public void run() {
 
-        if ((query == null) || (query.trim().length() == 0)) {
+        if (TextUtils.isNotEmpty(query)) {
+            repository.doBookSearch(this, query);
+        } else {
             post(new Runnable() {
                 @Override
                 public void run() {
                     callback.onError();
                 }
             });
-        } else {
-            repository.doBookSearch(this, query);
         }
     }
 
