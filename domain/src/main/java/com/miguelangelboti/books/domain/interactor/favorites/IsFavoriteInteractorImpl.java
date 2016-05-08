@@ -6,6 +6,7 @@ import com.miguelangelboti.books.domain.executor.ThreadExecutor;
 import com.miguelangelboti.books.domain.interactor.BaseInteractor;
 import com.miguelangelboti.books.domain.repository.BooksRepository;
 import com.miguelangelboti.books.domain.repository.BooksRepository.GetFavoritesCallback;
+import com.miguelangelboti.books.domain.utils.TextUtils;
 
 import java.util.List;
 
@@ -36,15 +37,15 @@ public class IsFavoriteInteractorImpl extends BaseInteractor implements IsFavori
     @Override
     public void run() {
 
-        if ((bookId == null) || (bookId.length() == 0)) {
+        if (TextUtils.isNotEmpty(bookId)) {
+            repository.getFavorites(this);
+        } else {
             post(new Runnable() {
                 @Override
                 public void run() {
                     callback.onError();
                 }
             });
-        } else {
-            repository.getFavorites(this);
         }
     }
 
