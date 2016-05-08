@@ -7,6 +7,7 @@ import com.miguelangelboti.books.domain.interactor.BaseInteractor;
 import com.miguelangelboti.books.domain.repository.BooksRepository;
 import com.miguelangelboti.books.domain.repository.BooksRepository.GetFavoritesCallback;
 import com.miguelangelboti.books.domain.repository.BooksRepository.SetFavoritesCallback;
+import com.miguelangelboti.books.domain.utils.TextUtils;
 
 import java.util.List;
 
@@ -37,24 +38,35 @@ public class DeleteFavoriteInteractorImpl extends BaseInteractor implements Dele
     @Override
     public void run() {
 
-        repository.getFavorites(new GetFavoritesCallback() {
-            @Override
-            public void onSuccess(@Nonnull List<Book> books) {
-                Book book = new Book(bookId);
-                books.remove(book);
-                setFavorites(books);
-            }
+        if (TextUtils.isNotEmpty(bookId)) {
 
-            @Override
-            public void onError() {
-                post(new Runnable() {
-                    @Override
-                    public void run() {
-                        callback.onError();
-                    }
-                });
-            }
-        });
+            repository.getFavorites(new GetFavoritesCallback() {
+                @Override
+                public void onSuccess(@Nonnull List<Book> books) {
+                    Book book = new Book(bookId);
+                    books.remove(book);
+                    setFavorites(books);
+                }
+
+                @Override
+                public void onError() {
+                    post(new Runnable() {
+                        @Override
+                        public void run() {
+                            callback.onError();
+                        }
+                    });
+                }
+            });
+
+        } else {
+            post(new Runnable() {
+                @Override
+                public void run() {
+                    callback.onError();
+                }
+            });
+        }
     }
 
     private void setFavorites(@Nonnull List<Book> books) {
